@@ -22,6 +22,11 @@
 
 <style lang="less">
 @import url('assets/icon.wxss');
+// @color-0067fe: #0067fe;
+// @color-00d2fd: #00d2fd;
+// @color-f2f2f2: #f2f2f2;
+// @searchIconBg-f7f7f7: #f7f7f7;
+// @icon: #999
 </style>
 
 <script>
@@ -31,6 +36,7 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
+      'pages/commodityList',
       'pages/index'
     ],
     window: {

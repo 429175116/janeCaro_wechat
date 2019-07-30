@@ -1,0 +1,248 @@
+// 首页
+<template>
+  <view>
+    <view class="search">
+      <icon class="iconfont iconfangdajing searchIconLeft"></icon>
+      <input type="text" placeholder="输入编号', 名称或助记符查询" />
+      <icon class="iconfont iconloudou searchIcon"></icon>
+      <icon class="iconfont iconshu searchIcon"></icon>
+      <icon class="iconfont iconupdate searchIconRight"></icon>
+      <icon class="iconfont iconsaoma saoma"></icon>
+    </view>
+    <view class="commodityList">
+      <view class="addCommodity">
+        <view>
+          <icon class="iconfont iconjiahao1"></icon>
+          添加商品
+        </view>
+      </view>
+      
+    </view>
+    <view class="listContainer">
+      <view class="listCon">
+        <repeat for="{{commodityList}}" item="item">
+          <view class="item" data-id="{{item.id}}">
+            <icon class="iconfont {{item.sel == 1 ? 'iconxuanzhong':'iconkuang'}}"></icon>
+            <image src="/assets/images/3.jpg"></image>
+            【狗子007】{{item.name}}
+          </view>
+        </repeat>
+      </view>
+      <ul>
+        <repeat for="{{letterList}}" item="item">
+          <li>{{item}}</li>
+        </repeat>
+      </ul>
+    </view>
+    <view class="operating">
+      <view>
+        <icon class="iconfont iconkuang"></icon>
+        <!-- <icon class="iconfont {{item.sel == 1 ? 'iconxuanzhong':'iconkuang'}}"></icon> -->
+        全选
+      </view>
+      <icon class="iconfont iconshanchu"></icon>
+      <icon class="iconfont iconshare"></icon>
+      <view class="print">条码打印</view>
+      <view>批量修改</view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class CommodityList extends wepy.page {
+    config = {
+      navigationBarTitleText: '商品档案'
+    }
+    components = {}
+
+    mixins = []
+
+    data = {
+      letterList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+      commodityList: [
+        {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
+        {'id': '1', 'sel': 1, 'img': '', 'name': '世豪的鞋子'},
+        {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
+        {'id': '1', 'sel': 1, 'img': '', 'name': '世豪的鞋子'},
+        {'id': '1', 'sel': 1, 'img': '', 'name': '世豪的鞋子'},
+        {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
+        {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
+        {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
+        {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
+      ],
+    }
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    onLoad() {
+      
+    }
+  }
+</script>
+<style lang="less">
+page{
+  background-color: #Fff;
+}
+.search{
+  width: 690rpx;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx;
+  .searchIconLeft, .searchIconRight, .searchIcon {
+    width: 70rpx;
+    height: 80rpx;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: #c2c2c2;
+    font-size: 30rpx;
+  }
+  .searchIcon{
+    color: #999;
+    font-size: 40rpx;
+    width: 30rpx !important;
+  }
+  .iconshu{
+    justify-content: flex-start !important;
+    width: 30rpx !important;
+  }
+  .searchIconLeft{
+    border-radius: 80rpx 0 0 80rpx;
+  }
+  .searchIconRight{
+    justify-content: flex-start !important;
+    width: 50rpx !important;
+    font-size: 40rpx;
+    color: #999;
+    border-radius: 0 80rpx 80rpx 0;
+  }
+   input{
+    background-color: #f7f7f7;
+    width: 435rpx;
+    height: 80rpx;
+    color: #999;
+  }
+  .saoma{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 75rpx;
+    height: 80rpx;
+    color: #999;
+    font-size: 48rpx;
+  }
+}
+.commodityList{
+  width: 690rpx;
+  height: auto;
+  padding: 30rpx;
+  border-top: 10rpx solid #f2f2f2;
+  .addCommodity{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    view{
+      border: 1rpx solid #999999;
+      border-radius: 10rpx;
+      padding: 0 17rpx;
+      height: 60rpx;
+      color: #333333;
+      font-size: 27rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    icon{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0067fe;
+      font-size: 30rpx;
+      margin-right: 10rpx;
+    }
+  }
+}
+.listContainer{
+  width: 690rpx;
+  height: auto;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 120rpx;
+  .listCon{
+    width: 665rpx;
+    .item{
+      width: 665rpx;
+      height: 75rpx;
+      margin-bottom: 60rpx;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    image{
+      width: 70rpx;
+      height: 70rpx;
+      border-radius: 10rpx;
+      margin: 0 30rpx;
+    }
+    icon{
+      font-size: 35rpx;
+      color: #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .iconxuanzhong{
+      color: #0067fe;
+    }
+  }
+  ul{
+    width: 25rpx;
+    color: #333;
+    font-weight: 600;
+    font-size: 25rpx;
+    li{
+      width: 25rpx;
+      height: 30rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+.operating{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 690rpx;
+  height: 40rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-top: 1rpx solid #999;
+  color: #333;
+  font-weight: 600;
+  icon{
+    font-size: 35rpx;
+    color: #999;
+  }
+  .iconkuang{
+    margin-right: 10rpx;
+    font-size: 35rpx;
+  }
+  .print{
+    color: #0067fe;
+  }
+}
+</style>
