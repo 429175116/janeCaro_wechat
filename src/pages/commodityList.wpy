@@ -1,4 +1,4 @@
-// 首页
+// 商品档案
 <template>
   <view>
     <view class="search">

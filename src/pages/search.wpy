@@ -1,0 +1,101 @@
+// 搜索
+<template>
+  <view>
+    <view class="search">
+      <input type="text" placeholder="搜索" />
+      <icon class="iconfont iconfangdajing"></icon>
+    </view>
+    <view class="searchDescription">
+      <view class="title">搜索内容包括错有：</view>
+      <view class="description">
+        <view class="item">功能模块</view>
+        <view class="item">功能模块</view>
+        <view class="item">功能模块</view>
+        <view class="item">功能模块</view>
+        <view class="item">功能模块</view>
+        <view class="item">功能模块</view>
+        <view class="item">功能模块</view>
+        <view class="item">功能模块</view>
+        <view class="item">功能模块</view>
+        <view class="item">功能模块</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Search extends wepy.page {
+    config = {
+      navigationBarTitleText: '搜索'
+    }
+    components = {}
+
+    mixins = []
+
+    data = {}
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    onLoad() {
+      
+    }
+  }
+</script>
+<style lang="less">
+page{
+  background-color: #Fff;
+}
+.search{
+  width: 690rpx;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx;
+   input{
+    padding: 0 30rpx;
+    background-color: #f7f7f7;
+    width: 615rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+    color: #999;
+  }
+  .iconfangdajing{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 75rpx;
+    height: 80rpx;
+    color: #333;
+    font-size: 48rpx;
+  }
+}
+.searchDescription{
+  width: 690rpx;
+  height: auto;
+  padding: 30rpx;
+  font-size: 28rpx;
+  .title{
+    width: 690rpx;
+    padding: 30rpx 0;
+    color: #999;
+  }
+  .description{
+    width: 690rpx;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .item{
+      padding: 5rpx 30rpx;
+      color: #333333;
+    }
+  }
+}
+</style>
