@@ -6,7 +6,7 @@
       <input type="text" placeholder="输入编号', 名称或助记符查询" />
       <icon class="iconfont iconloudou searchIcon"></icon>
       <icon class="iconfont iconshu searchIcon"></icon>
-      <icon class="iconfont iconupdate searchIconRight"></icon>
+      <icon class="iconfont iconupdate searchIconRight" @tap="sortShow"></icon>
       <icon class="iconfont iconsaoma saoma"></icon>
     </view>
     <view class="commodityList">
@@ -45,6 +45,13 @@
       <view class="print">条码打印</view>
       <view>批量修改</view>
     </view>
+    <view class="mask" wx:if="{{sortShowStr}}">
+      <view class="maskSort">
+        <repeat for="{{sortTypeList}}" item="item">
+          <view class="item" data-id="{{item.id}}">{{item.name}}</view>
+        </repeat>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -71,11 +78,31 @@
         {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
         {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
       ],
+      sortTypeList: [
+        {'id': '1', 'name': '商品编号'},
+        {'id': '1', 'name': '商品名称'},
+        {'id': '1', 'name': '库存'},
+        {'id': '1', 'name': '销量'},
+        {'id': '1', 'name': '品牌'},
+        {'id': '1', 'name': '材质'},
+        {'id': '1', 'name': '季节'},
+        {'id': '1', 'name': '产地'},
+        {'id': '1', 'name': '重量'}
+      ],
+      sortShowStr: false
     }
 
     computed = {}
 
-    methods = {}
+    methods = {
+      sortShow() {
+        if (this.sortShowStr) {
+          this.sortShowStr = false
+        } else {
+          this.sortShowStr = true
+        }
+      }
+    }
 
     events = {}
 
@@ -243,6 +270,22 @@ page{
   }
   .print{
     color: #0067fe;
+  }
+}
+.maskSort{
+  width: 465rpx;
+  height: auto;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx  #999;
+  background-color: #fff;
+  .item{
+    margin: 0 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 405rpx;
+    height: 90rpx;
+    border-bottom: 1rpx solid #f2f2f2;
   }
 }
 </style>
