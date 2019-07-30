@@ -8,16 +8,9 @@
     <view class="searchDescription">
       <view class="title">搜索内容包括错有：</view>
       <view class="description">
-        <view class="item">功能模块</view>
-        <view class="item">功能模块</view>
-        <view class="item">功能模块</view>
-        <view class="item">功能模块</view>
-        <view class="item">功能模块</view>
-        <view class="item">功能模块</view>
-        <view class="item">功能模块</view>
-        <view class="item">功能模块</view>
-        <view class="item">功能模块</view>
-        <view class="item">功能模块</view>
+        <repeat for="{{descriptionData}}" item="item">
+          <view class="item">{{item}}</view>
+        </repeat>
       </view>
     </view>
   </view>
@@ -33,7 +26,9 @@
 
     mixins = []
 
-    data = {}
+    data = {
+      descriptionData: ['功能模块', '帮助文档', '档案', '单据']
+    }
 
     computed = {}
 
