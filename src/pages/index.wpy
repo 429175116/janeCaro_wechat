@@ -29,7 +29,6 @@
             <icon class="iconfont iconyey2"></icon>
             隐藏
           </view>
-          
         </li>
         <li>
           销售单数
@@ -92,9 +91,7 @@
 
     events = {}
 
-    onLoad() {
-      
-    }
+    onLoad() {}
   }
 </script>
 <style lang="less">

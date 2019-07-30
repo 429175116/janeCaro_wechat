@@ -3,7 +3,7 @@
   <view>
     <view class="search">
       <icon class="iconfont iconfangdajing searchIconLeft"></icon>
-      <input type="text" placeholder="输入编号', 名称或助记符查询" />
+      <input type="text" placeholder="输入编号, 名称或助记符查询" />
       <icon class="iconfont iconloudou searchIcon"></icon>
       <icon class="iconfont iconshu searchIcon"></icon>
       <icon class="iconfont iconupdate searchIconRight" @tap="sortShow"></icon>
