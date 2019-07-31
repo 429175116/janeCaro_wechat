@@ -1,0 +1,358 @@
+<template>
+  <view>
+    <view class="titleBg">
+      <view class="carryOut">保存</view>
+    </view>
+    <view class="commodityList">
+      <view class="item">
+        <view class="name">商品编号批量修改</view>
+        <view class="modelList">
+          <view class="modelItem">
+            <label>首部增加</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+          <view class="modelItem">
+            <label>尾部增加</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+          <view class="modelItem">
+            <label>将编号中</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+          <view class="modelItem">
+            <label>替换为</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="name">商品名称批量修改</view>
+        <view class="modelList">
+          <view class="modelItem">
+            <label>首部增加</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+          <view class="modelItem">
+            <label>尾部增加</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+          <view class="modelItem">
+            <label>将编号中</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+          <view class="modelItem">
+            <label>替换为</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="name">商品备注批量修改</view>
+        <view class="modelList">
+          <view class="modelItem">
+            <label>首部增加</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+          <view class="modelItem">
+            <label>尾部增加</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+          <view class="modelItem">
+            <label>将编号中</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+          <view class="modelItem">
+            <label>替换为</label>
+            <input type="text" placeholder="输入内容" value="" />
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="name">商品基本信息</view>
+        <view class="selList">
+          <view class="selItem">
+            <text>供应商</text>
+            <icon class="iconfont iconsaoma"></icon>
+          </view>
+          <view class="selItem">
+            <text>商品分类</text>
+            <icon class="iconfont iconsaoma"></icon>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="name">商品价格</view>
+        <view class="selList">
+          <view class="selItem">
+            <label>进价</label>
+            <view class="original">
+              <text>进价</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <view class="increase">
+              <text>加</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <input type="text" placeholder="输入金额" value="" />
+          </view>
+          <view class="selItem">
+            <label>零售价</label>
+            <view class="original">
+              <text>进价</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <view class="increase">
+              <text>加</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <input type="text" placeholder="输入金额" value="" />
+          </view>
+          <view class="selItem">
+            <label>批发价</label>
+            <view class="original">
+              <text>进价</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <view class="increase">
+              <text>加</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <input type="text" placeholder="输入金额" value="" />
+          </view>
+          <view class="selItem">
+            <label>预售价</label>
+            <view class="original">
+              <text>进价</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <view class="increase">
+              <text>加</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <input type="text" placeholder="输入金额" value="" />
+          </view>
+          <view class="selItem">
+            <label>李四价</label>
+            <view class="original">
+              <text>进价</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <view class="increase">
+              <text>加</text>
+              <icon class="iconfont iconsaoma"></icon>
+            </view>
+            <input type="text" placeholder="输入金额" value="" />
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="name">商品属性</view>
+        <view class="selList">
+          <view class="selItem">
+            <text>品牌</text>
+            <icon class="iconfont iconsaoma"></icon>
+          </view>
+          <view class="selItem">
+            <text>材质</text>
+            <icon class="iconfont iconsaoma"></icon>
+          </view>
+          <view class="selItem">
+            <text>季节</text>
+            <icon class="iconfont iconsaoma"></icon>
+          </view>
+          <view class="selItem">
+            <text>产地</text>
+            <icon class="iconfont iconsaoma"></icon>
+          </view>
+          <view class="selItem">
+            <text>重量</text>
+            <icon class="iconfont iconsaoma"></icon>
+          </view>
+          <view class="selItem">
+            <text>年份</text>
+            <icon class="iconfont iconsaoma"></icon>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="name">商品基本信息</view>
+        <view class="buttonList">
+          <label>商品状态</label>
+          <view class="button active">启用</view>
+          <view class="button">停用</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class ModifyAll extends wepy.page {
+    config = {
+      navigationBarTitleText: '批量修改'
+    }
+    components = {
+    }
+
+    mixins = []
+
+    data = {
+      userInfo: null,
+      cityNode: [],
+      searchList: []
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+      
+    }
+
+    events = {
+
+    }
+
+    onLoad() {
+      this.userInfo = this.$parent.globalData.userInfo
+      this.requestImgUrl = this.$parent.globalData.requestImgUrl
+      // this.gettypeList()
+    }
+
+    
+  }
+</script>
+<style lang="less">
+  .titleBg{
+    width: 690rpx;
+    height: 80rpx;
+    padding: 0 30rpx;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .carryOut{
+      border-radius: 10rpx;
+      padding: 10rpx 30rpx;
+      border: 1rpx solid #0067fe;
+      color: #0067fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .commodityList{
+    width: 750rpx;
+    height: auto;
+    .item:nth-child(1){
+      border-width: 0;
+    }
+    .item{
+      width: 690rpx;
+      height: auto;
+      padding: 30rpx;
+      border-top: 10rpx solid #f2f2f2;
+      .name{
+        width: 690rpx;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 30rpx;
+        color: #333;
+        font-weight: 600;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        margin-bottom: 30rpx;
+      }
+    }
+    .modelList{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .modelItem{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20rpx 0;
+      label{
+        width: 135rpx;
+        font-size: 30rpx;
+        color: #333;
+        font-weight: 600;
+      }
+      input{
+        width: 150rpx;
+      }
+    }
+    .selItem{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20rpx 0;
+      label{
+        width: 90rpx;
+      }
+      text{
+        font-size: 28rpx;
+        color: #333;
+      }
+      icon{
+        font-size: 30rpx;
+        color: #999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      view{
+        background-color: #f2f2f2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15rpx;
+        border-radius: 10rpx;
+      }
+      .original{
+        width: 175rpx;
+      }
+      .increase{
+        width: 80rpx;
+      }
+      input{
+        background-color: #f2f2f2;
+        width: 135rpx;
+        height: 30rpx;
+        padding: 15rpx;
+        text-align: center;
+        border-radius: 10rpx;
+      }
+    }
+    .buttonList{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      label{
+        width: 130rpx;
+        color: #333;
+        font-size: 28rpx;
+        font-weight: 600;
+      }
+      .button{
+        color: #333;
+        font-size: 28rpx;
+        background-color: #f2f2f2;
+        padding: 15rpx 30rpx;
+        border-radius: 10rpx;
+        margin-left: 40rpx;
+      }
+      .active {
+        background-color: #0067fe !important;
+        color: #fff !important;
+      }
+    }
+  }
+</style>
