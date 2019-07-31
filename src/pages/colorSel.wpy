@@ -34,6 +34,16 @@
     <view class="newGrouping">
       新增分组
     </view>
+    <view class="mask">
+      <view class="con">
+        <view class="title">新增分组</view>
+        <input type="text" value="" placeholder="分组名称" />
+        <view class="button">
+          <view>取消</view>
+          <view class="active">确认</view>
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -126,5 +136,45 @@
     font-size: 30rpx;
     color: #fff;
     background-color: #0067fe;
+  }
+  .mask{
+    .con{
+      width: 600rpx;
+      background-color: #fff;
+      border-radius: 10rpx;
+    }
+    .title{
+      width: 540rpx;
+      font-size: 30rpx;
+      color: #333;
+      font-weight: 600;
+      padding: 30rpx;
+      text-align: center;
+    }
+    input{
+      width: 440rpx;
+      height: 30rpx;
+      padding: 25rpx 30rpx;
+      background-color: #f2f2f2;
+      margin: 30rpx 50rpx;
+      border-radius: 10rpx;
+    }
+    .button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      view{
+        width: 300rpx;
+        height: 120rpx;
+        font-size: 28rpx;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .active{
+        color: #0067fe;
+      }
+    }
   }
 </style>
