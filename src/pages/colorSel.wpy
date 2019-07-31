@@ -1,0 +1,130 @@
+<template>
+  <view>
+    <view class="titleBg">
+      <view class="carryOut">保存</view>
+    </view>
+    <view class="cityList">
+      <!-- <repeat for="{{cityNode}}" item="item">
+        <view class="item">
+          <view class="name">{{item.name}}</view>
+          <view class="cityName">
+            <repeat for="{{item.cityList}}" item="sonItem">
+              <view class="cityItem" data-id="{{sonItem.id}}" data-cityname="{{sonItem.cityName}}" @tap="cityClick">{{sonItem.cityName}}</view>
+            </repeat>
+          </view>
+        </view>
+      </repeat> -->
+      <view class="item">
+          <view class="name">其他</view>
+          <view class="cityName">
+            <view class="cityItem">橙色</view>
+            <view class="cityItem">橙色</view>
+            <view class="cityItem">橙的色</view>
+            <view class="cityItem">橙色</view>
+            <view class="cityItem">橙色</view>
+            <view class="cityItem">橙色</view>
+            <view class="cityItem">橙色</view>
+            <view class="cityItem">橙色</view>
+            <view class="cityItem">橙色</view>
+            <view class="cityItem">橙色</view>
+            <view class="cityItem active">添加(编号 名称)</view>
+          </view>
+        </view>
+    </view>
+    <view class="newGrouping">
+      新增分组
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class ColorSel extends wepy.page {
+    config = {
+      navigationBarTitleText: '颜色选择'
+    }
+    components = {
+    }
+
+    mixins = []
+
+    data = {
+      userInfo: null,
+      cityNode: [],
+      searchList: []
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+      
+    }
+
+    events = {
+
+    }
+
+    onLoad() {
+      this.userInfo = this.$parent.globalData.userInfo
+      this.requestImgUrl = this.$parent.globalData.requestImgUrl
+      // this.gettypeList()
+    }
+
+    
+  }
+</script>
+<style lang="less">
+  .titleBg{
+    width: 690rpx;
+    height: 80rpx;
+    padding: 0 30rpx;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .carryOut{
+      border-radius: 10rpx;
+      padding: 10rpx 30rpx;
+      border: 1rpx solid #0067fe;
+      color: #0067fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .cityList{
+    width: 690rpx;
+    padding: 0 30rpx;
+  }
+  .name{
+    width: 690rpx;
+    font-size: 33rpx;
+    font-weight: 600;
+    color: #333;
+    height: 60rpx;
+    line-height: 60rpx;
+  }
+  .cityItem{
+    background-color: #f2f2f2;
+    font-size: 30rpx;
+    color: #333333;
+    padding: 20rpx 30rpx;
+    display: inline-block;
+    margin: 10rpx;
+    border-radius: 10rpx;
+  }
+  .active{
+    color: #999999;
+  }
+  .newGrouping{
+    margin: 30rpx;
+    width: 120rpx;
+    padding: 15rpx 30rpx;
+    border-radius: 10rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #0067fe;
+  }
+</style>
