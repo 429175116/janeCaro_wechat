@@ -1,0 +1,219 @@
+<template>
+  <view>
+    <view class="titleBg">
+      <view class="carryOut">全部打印</view>
+    </view>
+    <view class="commodityList">
+      <view class="item">
+        <view class="name">
+          <view>商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
+          <icon class="iconfont iconshanchu"></icon>
+        </view>
+        <view class="modelList">
+          <view class="modelItem">
+            <view class="modelName">型号名称</view>
+            <view class="operating">
+              <icon class="iconfont iconhuabanfuben"></icon>
+              <view class="num">111</view>
+              <icon class="iconfont iconjiahao1 active"></icon>
+              <icon class="iconfont icondayin"></icon>
+            </view>
+          </view>
+          <view class="modelItem">
+            <view class="modelName">型号名称</view>
+            <view class="operating">
+              <icon class="iconfont iconhuabanfuben active"></icon>
+              <view class="num">111</view>
+              <icon class="iconfont iconjiahao1"></icon>
+              <icon class="iconfont icondayin"></icon>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="name">
+          <view>商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
+          <icon class="iconfont iconshanchu"></icon>
+        </view>
+        <view class="modelList">
+          <view class="modelItem">
+            <view class="modelName">型号名称</view>
+            <view class="operating">
+              <icon class="iconfont iconhuabanfuben"></icon>
+              <view class="num">111</view>
+              <icon class="iconfont iconjiahao1 active"></icon>
+              <icon class="iconfont icondayin"></icon>
+            </view>
+          </view>
+          <view class="modelItem">
+            <view class="modelName">型号名称</view>
+            <view class="operating">
+              <icon class="iconfont iconhuabanfuben active"></icon>
+              <view class="num">111</view>
+              <icon class="iconfont iconjiahao1"></icon>
+              <icon class="iconfont icondayin"></icon>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="name">
+          <view>商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
+          <icon class="iconfont iconshanchu"></icon>
+        </view>
+        <view class="modelList">
+          <view class="modelItem">
+            <view class="modelName">型号名称</view>
+            <view class="operating">
+              <icon class="iconfont iconhuabanfuben"></icon>
+              <view class="num">111</view>
+              <icon class="iconfont iconjiahao1 active"></icon>
+              <icon class="iconfont icondayin"></icon>
+            </view>
+          </view>
+          <view class="modelItem">
+            <view class="modelName">型号名称</view>
+            <view class="operating">
+              <icon class="iconfont iconhuabanfuben active"></icon>
+              <view class="num">111</view>
+              <icon class="iconfont iconjiahao1"></icon>
+              <icon class="iconfont icondayin"></icon>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Printing extends wepy.page {
+    config = {
+      navigationBarTitleText: '扫码打印'
+    }
+    components = {
+    }
+
+    mixins = []
+
+    data = {
+      userInfo: null,
+      cityNode: [],
+      searchList: []
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+      
+    }
+
+    events = {
+
+    }
+
+    onLoad() {
+      this.userInfo = this.$parent.globalData.userInfo
+      this.requestImgUrl = this.$parent.globalData.requestImgUrl
+      // this.gettypeList()
+    }
+
+    
+  }
+</script>
+<style lang="less">
+  .titleBg{
+    width: 690rpx;
+    height: 80rpx;
+    padding: 0 30rpx;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .carryOut{
+      border-radius: 10rpx;
+      padding: 10rpx 30rpx;
+      border: 1rpx solid #0067fe;
+      color: #0067fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .commodityList{
+    width: 750rpx;
+    height: auto;
+    .item:nth-child(1){
+      border-width: 0;
+    }
+    .item{
+      width: 690rpx;
+      height: auto;
+      padding: 30rpx;
+      border-top: 10rpx solid #f2f2f2;
+      .name{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        view{
+          font-size: 30rpx;
+          color: #333;
+          font-weight: 600;
+          width: 640rpx;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+        }
+        icon{
+          width: 50rpx;
+          color: #999999;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+      }
+    }
+    .modelList{
+      width: 690rpx;
+      height: auto;
+      margin-top: 30rpx;
+    }
+    .modelItem{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25rpx 0;
+    }
+    .modelName{
+      width: 420rpx;
+      color: #333333;
+      font-size: 28rpx;
+    }
+    .operating{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color: #999;
+      icon{
+        font-size: 40rpx;
+        width: 40rpx;
+        height: 40rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icondayin{
+        margin-left: 30rpx;
+      }
+      view{
+        padding: 0 15rpx;
+      }
+      .active{
+        color: #0067fe;
+      }
+    }
+  }
+</style>

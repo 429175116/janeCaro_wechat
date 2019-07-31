@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="titleBg">
-      <view class="carryOut">属性</view>
+      <view class="carryOut">完成</view>
     </view>
     <view class="upForm">
       <view class="item">
@@ -11,29 +11,36 @@
         </view>
       </view>
       <view class="item">
-        <label>编号</label>
+        <label>名称</label>
         <view>
           <input type="text" placeholder="请填写货号">
         </view>
       </view>
       <view class="item">
-        <label>编号</label>
+        <label>条码</label>
         <view>
           <input type="text" placeholder="请填写货号">
         </view>
       </view>
       <view class="item">
-        <label>编号</label>
+        <label>备注</label>
         <view>
           <input type="text" placeholder="请填写货号">
         </view>
       </view>
       <view class="item">
-        <label>编号</label>
+        <label>创建时间</label>
         <view class="time">
           <input type="text" placeholder="开始时间">
           -
           <input type="text" placeholder="结束时间">
+        </view>
+      </view>
+      <view class="item">
+        <label>商品状态</label>
+        <view class="time">
+          <view>启用</view>
+          <view>停用</view>
         </view>
       </view>
     </view>
@@ -67,6 +74,11 @@
           <view class="typeItem" @tap="cityClick">优衣库</view>
         </view>
       </view>
+    </view>
+    <view class="sub">
+      <view>重置</view>
+      <icon class="iconfont iconshu"></icon>
+      <view>完成</view>
     </view>
   </view>
 </template>
@@ -182,8 +194,25 @@
       }
       .time{
         input{
-          width: 140rpx;
+          width: 130rpx;
+          // width: auto;
           text-align: center;
+        }
+        view{
+          width: 105rpx;
+          height: 60rpx;
+          border-radius: 10rpx;
+          font-size: 28rpx;
+          color: #333333;
+          background-color: #f2f2f2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 40rpx;
+        }
+        view:nth-child(1){
+          color: #fff;
+          background-color: #0067fe;
         }
       }
     }
@@ -191,6 +220,7 @@
   .typeList{
     width: 690rpx;
     padding: 0 30rpx;
+    margin-bottom: 100rpx;
   }
   .name{
     width: 690rpx;
@@ -209,5 +239,32 @@
     margin: 13rpx 20rpx;
     border-radius: 10rpx;
   }
-  
+  .sub{
+    width: 750rpx;
+    height: 100rpx;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    view{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 370rpx;
+      height: 100rpx;
+      font-size: 28rpx;
+      color: #333;
+    }
+    icon{
+      width: 10rpx;
+      font-size: 36rpx;
+      color: #f2f2f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 </style>
