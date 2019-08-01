@@ -51,6 +51,7 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/overhead', // 开销售单
+      'pages/overheadSearch', // 开销售单--搜索列表
       'pages/printer', // 打印机管开销售单理
       'pages/reconciliationDetails' , // 客户对账--详情
       'pages/reconciliation', // 客户对账

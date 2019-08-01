@@ -1,120 +1,63 @@
 // 开销售单
 <template>
   <view>
-    <view class="search">
-      <icon class="iconfont iconfangdajing searchIconLeft"></icon>
-      <input type="text" placeholder="输入编号, 名称或助记符查询" />
-      <icon class="iconfont iconjiantouXia searchIcon" @tap="selType"></icon>
-      <icon class="iconfont iconloudou searchIcon"></icon>
-      <icon class="iconfont iconshu searchIcon"></icon>
-      <icon class="iconfont iconupdate searchIconRight"></icon>
+    <view class="head">
+      <icon class="iconfont iconloudou"></icon>
     </view>
     <view class="list">
       <view class="item">
-        <icon class="iconfont iconkuang"></icon>
-        <view class="con">
-          <view class="conTop">
-            <text>名称名称名称</text>
-            <view class="green">草稿</view>
-            <!-- <view class="green">草稿</view>
-            <view class="blue">已过账</view>
-            <view class="red">已红冲</view>
-            <view class="gray">已结算</view> -->
-          </view>
-          <view class="conIn">
-            <view>
-              ￥<text class="price">100</text>
-              共<text>100</text>件
-            </view>
-            <text>总仓</text>
-          </view>
-          <view class="conBot">
-            <text>名称名称名称</text>
-            <text>时间时间时间</text>
-          </view>
-        </view>
+        <label>表头信息</label>
+        <icon class="iconfont iconloudou"></icon>
       </view>
       <view class="item">
-        <icon class="iconfont iconxuanzhong"></icon>
-        <view class="con">
-          <view class="conTop">
-            <text>名称名称名称</text>
-            <view class="blue">已过账</view>
-            <!-- <view class="green">草稿</view>
-            <view class="blue">已过账</view>
-            <view class="red">已红冲</view>
-            <view class="gray">已结算</view> -->
-          </view>
-          <view class="conIn">
-            <view>
-              ￥<text class="price">100</text>
-              共<text>100</text>件
-            </view>
-            <text>总仓</text>
-          </view>
-          <view class="conBot">
-            <text>名称名称名称</text>
-            <text>时间时间时间</text>
-          </view>
+        <view>
+          <label>客户</label>
+          <input type="text" placeholder="点击选择客户" disabled="disabled" />
         </view>
+        <icon class="iconfont iconloudou"></icon>
       </view>
       <view class="item">
-        <icon class="iconfont iconkuang"></icon>
-        <view class="con">
-          <view class="conTop">
-            <text>名称名称名称</text>
-            <view class="red">已红冲</view>
-            <!-- <view class="green">草稿</view>
-            <view class="blue">已过账</view>
-            <view class="red">已红冲</view>
-            <view class="gray">已结算</view> -->
-          </view>
-          <view class="conIn">
-            <view>
-              ￥<text class="price">100</text>
-              共<text>100</text>件
-            </view>
-            <text>总仓</text>
-          </view>
-          <view class="conBot">
-            <text>名称名称名称</text>
-            <text>时间时间时间</text>
-          </view>
+        <view>
+          <label>此前应收</label>
+          <text>￥2</text>
         </view>
+        <icon class="iconfont iconloudou"></icon>
       </view>
       <view class="item">
-        <icon class="iconfont iconxuanzhong"></icon>
-        <view class="con">
-          <view class="conTop">
-            <text>名称名称名称</text>
-            <view class="gray">已结算</view>
-            <!-- <view class="green">草稿</view>
-            <view class="blue">已过账</view>
-            <view class="red">已红冲</view>
-            <view class="gray">已结算</view> -->
-          </view>
-          <view class="conIn">
-            <view>
-              ￥<text class="price">100</text>
-              共<text>100</text>件
-            </view>
-            <text>总仓</text>
-          </view>
-          <view class="conBot">
-            <text>名称名称名称</text>
-            <text>时间时间时间</text>
-          </view>
+        <view>
+          <label>备注</label>
+          <input type="text" placeholder="不可填" disabled="disabled" />
         </view>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <label>客户</label>
+        <view>
+          <icon class="iconfont iconloudou iconList"></icon>
+          <icon class="iconfont iconloudou iconList"></icon>
+          <icon class="iconfont iconloudou iconList"></icon>
+          <icon class="iconfont iconloudou iconList"></icon>
+        </view>
+      </view>
+      <view class="addList">
+        <view>
+          <icon class="iconfont iconshanchu"></icon>
+          <text>添加商品</text>
+        </view>
+      </view>
+      <view class="head">
+        <view>全部展开</view>
+        <view>全部清空</view>
       </view>
     </view>
     <view class="operating">
-      <view class="item">
-        <icon class="iconfont iconkuang"></icon>
-        全选
-        <view>1</view>
-      </view>
-      <view class="item print">批量打印</view>
-      <view class="item">批量过账</view>
+      <view class="item">调申请单</view>
+      <view class="item">分享</view>
+      <view class="item print">打印</view>
+      <view class="item">保存</view>
+      <view class="item">过账</view>
     </view>
     <view class="mask" wx:if="{{selTypeShow}}">
       <view class="maskSort">
@@ -128,7 +71,7 @@
 
 <script>
   import wepy from 'wepy'
-  export default class Index extends wepy.page {
+  export default class OverheadSearch extends wepy.page {
     config = {
       navigationBarTitleText: '简卡罗'
     }
@@ -170,133 +113,96 @@
 page{
   background-color: #Fff;
 }
-.search{
+.head{
   width: 690rpx;
-  height: auto;
+  height: 40rpx;
+  padding: 20rpx 30rpx;
+  background-color: #f2f2f2;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 30rpx;
-  .iconjiantouXia{
-    padding-right: 20rpx;
+  justify-content: flex-end;
+  view{
+    margin-left: 30rpx;
+    font-size: 28rpx;
+    color: #666666;
   }
-  .searchIconLeft, .searchIconRight, .searchIcon {
-    width: 70rpx;
-    height: 80rpx;
-    background-color: #f7f7f7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    color: #c2c2c2;
-    font-size: 30rpx;
-  }
-  .searchIcon{
-    color: #999;
+  icon{
     font-size: 40rpx;
-    width: 30rpx !important;
+    color: #666666;
   }
-  .iconshu{
-    justify-content: flex-start !important;
-    width: 30rpx !important;
-  }
-  .searchIconLeft{
-    border-radius: 80rpx 0 0 80rpx;
-  }
-  .searchIconRight{
-    justify-content: flex-start !important;
-    width: 50rpx !important;
-    font-size: 40rpx;
-    color: #999;
-    border-radius: 0 80rpx 80rpx 0;
-  }
-   input{
-    background-color: #f7f7f7;
-    width: 440rpx;
-    height: 80rpx;
-    color: #999;
-  }
-}
-.iconxuanzhong{
-  color: #0067fe;
 }
 icon{
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.iconkuang{
-  color: #999;
+.list:nth-child(1) {
+  border-width: 0;
+}
+.addList{
+  width: 690rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  view{
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid #cdcdcd;
+    color: #cdcdcd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  icon{
+    font-size: 55rpx;
+    color: #cdcdcd;
+  }
+  text{
+    font-size: 25rpx;
+    margin-top: 20rpx;
+  }
+}
+.iconList{
+  padding-left: 30rpx;
+  color: #666666;
 }
 .list{
   width: 750rpx;
   height: auto;
   border-top: 10rpx solid #f2f2f2;
-  margin-bottom: 120rpx;
   .item{
     width: 690rpx;
-    margin: 30rpx;
+    padding: 30rpx;
+    height: 30rpx;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1rpx solid #f2f2f2;
-    icon{
-      font-size: 35rpx;
+    view{
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
-    
-    .con{
-      width: 625rpx;
-      height: 155rpx;
-    }
-    .price{
-      padding-right: 25rpx;
-    }
-    .green{
-      // 绿色
-      background-color: #56af20;
-    }
-    .blue{
-      // 蓝色
-      background-color: #0067fe;
-    }
-    .red{
-      // 红色
-      background-color: #e63042;
-    }
-    .gray{
-      // 灰色
-      background-color: #9e9e9e;
-    }
-    .conTop, .conIn, .conBot{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 27rpx;
-      color: #666666;
-    }
-    .conTop view{
-      font-size: 25rpx;
-      color: #fff;
-      padding: 10rpx 20rpx;
-      border-radius: 10rpx;
-    }
-    .conTop text{
-      font-size: 30rpx;
-      color: #333;
-      font-weight: 600;
-    }
-    .conIn{
-      margin-top: 30rpx;
-      view text{
-        color: #e63042;
+      justify-content: flex-start;
+      text{
+        color: #e63142;
+        padding-left: 30rpx
       }
     }
-    
+    input{
+      margin-left: 30rpx;
+    }
+    label{
+      font-size: 30rpx;
+      font-weight: 600;
+    }
+    icon{
+      font-size: 30rpx;
+      color: #999;
+    }
   }
 }
+
 .operating{
   width: 690rpx;
   height: 40rpx;
@@ -313,22 +219,6 @@ icon{
   font-weight: 600;
   .print{
     color: #0067fe;
-  }
-  .item{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    view{
-      background-color: #e63042;
-      font-size: 20rpx;
-      padding: 5rpx 10rpx;
-      border-radius: 50rpx;
-      color: #fff;
-      margin-left: 10rpx;
-    }
-    icon{
-      margin-right: 30rpx;
-    }
   }
 }
 .maskSort{
