@@ -20,7 +20,7 @@
       </view>
       <view class="item">
         <text>2019-08-28销售单（XS2019-08-290014）</text>
-        <icon class="iconfont icontiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></icon>
+        <icon class="iconfont iconjiantouYou"></icon>
       </view>
       <view class="commoditfList">
         <view class="name">商品名称商品名称</view>
