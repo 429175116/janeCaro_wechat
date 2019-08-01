@@ -50,14 +50,18 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/addCommodity',
-      'pages/colorSel',
-      'pages/modifyAll',
-      'pages/printing',
-      'pages/inquireCommodity',
-      'pages/commodityList',
-      'pages/search',
-      'pages/index'
+      'pages/reconciliation', // 客户对账
+      'pages/addCommodity', // 添加商品--商品档案
+      'pages/commodityList', // 商品档案
+      
+      'pages/index', // 首页
+      'pages/search', // 搜索
+      
+      'pages/inquireCommodity', // 商品查询
+      'pages/printing', // 条码打印
+      'pages/modifyAll', // 批量修改
+      'pages/colorSel', // 颜色选择
+      
     ],
     window: {
       backgroundTextStyle: 'light',
