@@ -4,11 +4,11 @@
     <view class="liet">
       <view class="item">
         <text>显示商品</text>
-        <icon class="iconfont icondaochu active"></icon>
+        <icon class="iconfont iconkaiguanguan"></icon>
       </view>
       <view class="item">
         <text>显示商品</text>
-        <icon class="iconfont icondaochu active"></icon>
+        <icon class="iconfont iconkaiguanguan1 active"></icon>
       </view>
       <view class="item time">
         <text>显示商品</text>
@@ -20,20 +20,14 @@
       </view>
       <view class="item">
         <text>2019-08-28销售单（XS2019-08-290014）</text>
-        <icon class="iconfont icondaochu"></icon>
+        <icon class="iconfont icontiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></icon>
       </view>
       <view class="commoditfList">
-        <!-- <view class="item"> -->
-          <view class="name">商品名称商品名称</view>
-          <view class="con">
-            <text>×6</text>
-            <text>￥600</text>
-          </view>
-        <!-- </view> -->
-      </view>
-      <view class="item">
-        <text>显示商品</text>
-        <icon class="iconfont icondaochu"></icon>
+        <view class="name">商品名称商品名称</view>
+        <view class="con">
+          <text>×6</text>
+          <text>￥600</text>
+        </view>
       </view>
       <view class="item">
         <text>应收增加:1800</text>
