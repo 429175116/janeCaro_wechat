@@ -50,6 +50,7 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
+      'pages/reconciliationDetails' , // 客户对账--详情
       'pages/reconciliation', // 客户对账
       'pages/addCommodity', // 添加商品--商品档案
       'pages/commodityList', // 商品档案
