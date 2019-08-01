@@ -50,7 +50,8 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/printer', // 打印机管理
+      'pages/overhead', // 开销售单
+      'pages/printer', // 打印机管开销售单理
       'pages/reconciliationDetails' , // 客户对账--详情
       'pages/reconciliation', // 客户对账
       'pages/addCommodity', // 添加商品--商品档案
