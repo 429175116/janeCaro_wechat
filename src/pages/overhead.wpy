@@ -66,6 +66,84 @@
         </repeat>
       </view>
     </view>
+    <view class="commodityInfo">
+      <image src="/assets/images/3.jpg"></image>
+      <view class="con">
+        <view class="name">商品名称商品名称</view>
+        <view class="info">
+          <text>共1种1个</text>
+          <text class="price">合计￥100</text>
+        </view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <label>合计数量</label>
+        <text>1</text>
+      </view>
+      <view class="item">
+        <label>合计金额</label>
+        <text>￥100</text>
+      </view>
+      <view class="item">
+        <label>整单折扣</label>
+        <text>无折扣</text>
+      </view>
+      <view class="item">
+        <label>整单优惠</label>
+        <text>无优惠</text>
+      </view>
+      <view class="item">
+        <label>成交金额</label>
+        <text class="price">￥100</text>
+      </view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <label>费用信息</label>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="prompt">添加费用</view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <label>费用信息</label>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="item">
+        <label>费用  我方自付/工商银行/房租</label>
+        <view>
+          <text class="price">+1</text>
+          <icon class="iconfont iconloudou"></icon>
+        </view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <view>
+          <label>收款信息</label>
+          <text>(待结算<text class="price">￥0</text>)</text>
+        </view>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="item">
+        <label>收款  现金</label>·
+        <text class="price">+100</text>
+      </view>
+    </view>
+    <view class="list bottomList">
+      <view class="item">
+        <label>费用信息</label>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="addList">
+        <view>
+          <icon class="iconfont iconshanchu"></icon>
+          <text>添加商品</text>
+          <text>添加商品</text>
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -112,6 +190,9 @@
 <style lang="less">
 page{
   background-color: #Fff;
+}
+.bottomList{
+  margin-bottom: 120rpx;
 }
 .head{
   width: 690rpx;
@@ -202,7 +283,13 @@ icon{
     }
   }
 }
-
+.price{
+  color: #e63142;
+}
+.prompt{
+  color: #999999;
+  font-size: 25rpx;
+}
 .operating{
   width: 690rpx;
   height: 40rpx;
@@ -235,6 +322,42 @@ icon{
     width: 405rpx;
     height: 90rpx;
     border-bottom: 1rpx solid #f2f2f2;
+  }
+}
+.commodityInfo{
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 690rpx;
+  height: 120rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  image{
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 20rpx;
+  }
+  .con{
+    width: 550rpx;
+    height: 120rpx;
+    display: flex;
+    // align-items: space-around;
+    justify-content: space-between;
+    flex-direction: column;
+    color: #666666;
+  }
+  .name{
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #333;
+  }
+  .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .price{
+    font-size: 30rpx;
   }
 }
 </style>
