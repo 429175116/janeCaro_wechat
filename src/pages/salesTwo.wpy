@@ -51,11 +51,74 @@
       </view>
       <view class="button">完成</view>
     </view>
-    <view class="mask" wx:if="{{sortShowStr}}">
-      <view class="maskSort">
-        <repeat for="{{sortTypeList}}" item="item">
-          <view class="item" data-id="{{item.id}}">{{item.name}}</view>
-        </repeat>
+    <!-- <view class="mask" wx:if="{{sortShowStr}}"> -->
+    <view class="mask">
+      <view class="conOrder">
+        <view class="commodity">
+          <image src="/assets/images/3.jpg"></image>
+          <view>
+            <view class="name">鞋名字</view>
+            <view>库存：100双</view>
+            <view>￥200/双<icon class="iconfont iconkuang"></icon></view>
+          </view>
+        </view>
+        <view class="title">颜色</view>
+        <view class="colorList">
+          <view>黑色</view>
+          <view>黑色</view>
+          <view>黑色</view>
+          <view>黑色</view>
+          <view>黑色</view>
+          <view>黑色</view>
+          <view>黑色</view>
+          <view>黑色</view>
+          <view>黑色</view>
+          <view>黑色</view>
+          <view>黑色</view>
+        </view>
+        <view class="title">尺码</view>
+        <view class="sizeList">
+          <view class="item">
+            <view>
+              <view class="name">xL</view>
+              <view>asdfasdf</view>
+            </view>
+            <view class="num">
+              <view class="down">-</view>
+              <input type="text" value="11" />
+              <view class="up">+</view>
+            </view>
+          </view>
+          <view class="item">
+            <view>
+              <view class="name">xL</view>
+              <view>asdfasdf</view>
+            </view>
+            <view class="num">
+              <view class="down">-</view>
+              <input type="text" value="11" />
+              <view class="up">+</view>
+            </view>
+          </view>
+          <view class="item">
+            <view>
+              <view class="name">xL</view>
+              <view>asdfasdf</view>
+            </view>
+            <view class="num">
+              <view class="down">-</view>
+              <input type="text" value="11" />
+              <view class="up">+</view>
+            </view>
+          </view>
+          <view class="allNum item">
+            <view class="name">共5件</view>
+            <view class="name">
+              合计￥<text>500</text>
+            </view>
+          </view>
+        </view>
+        <view class="sub">完成</view>
       </view>
     </view>
   </view>
@@ -313,20 +376,127 @@ page{
 .price{
   color: #e63042;
 }
-.maskSort{
-  width: 465rpx;
+.conOrder{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
   height: auto;
-  border-radius: 10rpx;
-  box-shadow: 5rpx 5rpx 5rpx  #999;
+  border-radius: 10rpx 10rpx 0 0;
   background-color: #fff;
-  .item{
-    margin: 0 30rpx;
+  .title{
+    width: 690rpx;
+    padding: 0 30rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #333;
+  }
+  .commodity{
+    width: 690rpx;
+    padding: 30rpx;
+    display: flex;
+    // align-items: center;
+    justify-content: flex-start;
+    font-size: 30rpx;
+    color: #333;
+    .name{
+      font-weight: 600;
+      margin-bottom: 70rpx;
+    }
+    icon{
+      font-size: 30rpx;
+      // display: flex;
+      // align-items: center;
+      // justify-content: flex-start;
+    }
+    image{
+      width: 190rpx;
+      height: 190rpx;
+      border-radius: 10rpx;
+      margin-right: 20rpx;
+    }
+  }
+  .colorList{
+    width: 690rpx;
+    height: auto;
+    padding: 30rpx;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    view{
+      color: #333;
+      font-size: 27rpx;
+      font-weight: 600;
+      padding: 10rpx 20rpx;
+      background-color: #f2f2f2;
+      border-radius: 10rpx;
+      margin-right: 30rpx;
+      margin-bottom: 30rpx;
+    }
+  }
+  .sizeList{
+    width: 690rpx;
+    height: auto;
+    padding: 30rpx;
+    margin-bottom: 120rpx;
+    .item{
+      margin-top: 30rpx;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #666666;
+      font-size: 25rpx;
+    }
+    .name, .down, .up, input {
+      font-size: 30rpx;
+      font-weight: 600;
+      color: #333;
+    }
+    .num{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .down, .up, input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50rpx;
+      border: solid #d6d6d6;
+    }
+    input{
+      text-align: center;
+      width: 70rpx;
+      border-width: 1rpx 0 1rpx 0;
+    }
+    .up{
+      width: 50rpx;
+      border-width: 1rpx;
+      border-radius: 0 10rpx 10rpx 0;
+    }
+    .down{
+      width: 50rpx;
+      border-width: 1rpx;
+      border-radius: 10rpx 0 0 10rpx;
+    }
+    text{
+      color: #e63042;
+    }
+    
+  }
+  .sub{
+    position: absolute;
+    bottom: 0;
+    width: 750rpx;
+    height: 100rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 405rpx;
-    height: 90rpx;
-    border-bottom: 1rpx solid #f2f2f2;
+    background-color: #0067fe;
   }
 }
 </style>
