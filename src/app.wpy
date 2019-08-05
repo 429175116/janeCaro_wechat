@@ -49,8 +49,8 @@ import 'wepy-async-function'
 
 export default class extends wepy.app {
   config = {
-    pages: [
-      
+    pages: [ 
+      'pages/salesTwo', // 开销售单耳机
       'pages/billingEditor', // 开单编辑
       'pages/overhead', // 开销售单
       'pages/overheadSearch', // 开销售单--搜索列表
