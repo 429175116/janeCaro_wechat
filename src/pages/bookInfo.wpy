@@ -1,0 +1,119 @@
+// 搜索
+<template>
+  <view>
+    <view class="commodityTitle">
+      <view>踏青休闲鞋</view>
+      <view>初期:0.00</view>
+      <view>数量:2</view>
+    </view>
+    <view class="commodityList">
+      <view class="title">
+        <view class="name">
+          <icon class="iconfont iconupdate"></icon>
+          商品
+        </view>
+        <view>仓库</view>
+        <view>库存</view>
+        <view>均价</view>
+        <view>库存额</view>
+      </view>
+      <repeat for="{{commodityList}}" item="item">
+        <view class="item" data-id="{{item.id}}">
+          <view class="name">{{item.name}}</view>
+          <view>{{item.warehouse}}</view>
+          <view>{{item.stock}}</view>
+          <view>{{item.price}}</view>
+          <view>{{item.allPrice}}</view>
+        </view>
+      </repeat>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class StockList extends wepy.page {
+    config = {
+      navigationBarTitleText: '明细账本'
+    }
+    components = {}
+
+    mixins = []
+
+    data = {
+      commodityList: [
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'warehouse': '总仓', 'stock':'1000', 'price':'100', 'allPrice':'10000'}
+      ]
+    }
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    onLoad() {
+      
+    }
+  }
+</script>
+<style lang="less">
+page{
+  background-color: #f2f2f2;
+}
+.commodityTitle{
+  width: 710rpx;
+  padding: 20rpx;
+  border-top: 1rpx solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  background-color: #fff;
+  padding-bottom: 60rpx; 
+}
+.commodityList{
+  width: 710rpx;
+  height: auto;
+  padding: 20rpx;
+  background-color: #fff;
+  margin-top: 10rpx;
+  .title, .item{
+    padding: 30rpx 0;
+    width: 710rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    view{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 110rpx;
+      padding: 0 15rpx;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .name{
+      width: 120rpx;
+      padding: 0 15rpx;
+    }
+  }
+  .item .name{
+    justify-content: flex-start;
+    font-weight: 600;
+  }
+}
+</style>

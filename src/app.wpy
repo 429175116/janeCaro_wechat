@@ -49,7 +49,10 @@ import 'wepy-async-function'
 
 export default class extends wepy.app {
   config = {
-    pages: [ 
+    pages: [
+      
+      'pages/course', // 单据历程
+      'pages/bookInfo', // 账本明细
       'pages/stockList', // 库存查询
       'pages/reconciliation', // 客户对账
       'pages/reconciliationDetails' , // 客户对账--详情

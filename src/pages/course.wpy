@@ -1,0 +1,38 @@
+// 搜索
+<template>
+  <view>
+    
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class StockList extends wepy.page {
+    config = {
+      navigationBarTitleText: '库存查询'
+    }
+    components = {}
+
+    mixins = []
+
+    data = {
+      
+    }
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    onLoad() {
+      
+    }
+  }
+</script>
+<style lang="less">
+page{
+  background-color: #Fff;
+}
+
+</style>
