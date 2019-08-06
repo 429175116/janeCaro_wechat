@@ -1,7 +1,30 @@
-// 搜索
+// 单据历程
 <template>
   <view>
-    
+    <view class="con">
+      <view class="num">
+        <view class="numShow">1</view>
+        <view class="border"></view>
+        <view class="numShow">2</view>
+        <view class="border"></view>
+        <view class="numShow">3</view>
+      </view>
+      <view class="time">
+        <view>2019-08-21</view>
+        <view>2019-08-21</view>
+        <view>2019-08-21</view>
+      </view>
+      <view class="user">
+        <view>管理员</view>
+        <view>管理员</view>
+        <view>管理员</view>
+      </view>
+      <view class="operating">
+        <view>新建</view>
+        <view>过账</view>
+        <view>打印</view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -9,7 +32,7 @@
   import wepy from 'wepy'
   export default class StockList extends wepy.page {
     config = {
-      navigationBarTitleText: '库存查询'
+      navigationBarTitleText: '单据历程'
     }
     components = {}
 
@@ -32,7 +55,56 @@
 </script>
 <style lang="less">
 page{
-  background-color: #Fff;
+  background-color: #fff;
 }
-
+.con{
+  width: 690rpx;
+  height: auto;
+  padding: 0 30rpx;
+  border-top: 10rpx solid #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.time, .user{
+  color: #666666;
+}
+.time, .user, .operating{
+  font-size: 28rpx;
+  view{
+    padding: 30rpx 0;
+    height: 45rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+.time view{
+  width: 260rpx;
+}
+.operating{
+  font-weight: 600;
+}
+.num{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  .numShow{
+    width: 45rpx;
+    height: 45rpx;
+    border-radius: 45rpx;
+    font-size: 23rpx;
+    color: #fff;
+    background-color: #0067fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .border{
+    width: 0;
+    height: 60rpx;
+    border-left: 1rpx solid #c1daff;
+  }
+}
 </style>
