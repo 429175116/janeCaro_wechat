@@ -1,0 +1,127 @@
+// 消费记录
+<template>
+  <view>
+    <view class="list">
+      <view class="item">
+        <view class="con">
+          <view class="name size">名字名字名字名字名字名字名字名字</view>
+          <view>×1</view>
+        </view>
+        <view class="con">
+          <view class="size">
+            名字名
+            <text>2019-08-12 12:00</text>
+          </view>
+          <view class="name">120</view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="con">
+          <view class="name size">名字名字名字名字名字名字名字名字</view>
+          <view>×1</view>
+        </view>
+        <view class="con">
+          <view class="size">
+            名字名
+            <text>2019-08-12 12:00</text>
+          </view>
+          <view class="name">120</view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="con">
+          <view class="name size">名字名字名字名字名字名字名字名字</view>
+          <view>×1</view>
+        </view>
+        <view class="con">
+          <view class="size">
+            名字名
+            <text>2019-08-12 12:00</text>
+          </view>
+          <view class="name">120</view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="con">
+          <view class="name size">名字名字名字名字名字名字名字名字</view>
+          <view>×1</view>
+        </view>
+        <view class="con">
+          <view class="size">
+            名字名
+            <text>2019-08-12 12:00</text>
+          </view>
+          <view class="name">120</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Consumption extends wepy.page {
+    config = {
+      navigationBarTitleText: '消费记录'
+    }
+    components = {}
+
+    mixins = []
+
+    data = {
+      
+    }
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    onLoad() {
+      
+    }
+  }
+</script>
+<style lang="less">
+page{
+  background-color: #fff;
+}
+.list{
+  width: 690rpx;
+  height: auto;
+  padding: 0 30rpx;
+  border-top: 10rpx solid #f9f9f9;
+}
+.item{
+  width: 690rpx;
+  height: 90rpx;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f2f2f2;
+  display: flex;
+  align-items: space-around;
+  justify-content: space-between;
+  flex-direction: column;
+  .con {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 27rpx;
+    color: #999999;
+  }
+  .name{
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #333;
+  }
+  .size{
+    width: 580rpx;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  text{
+    padding-left: 30rpx;
+  }
+}
+</style>

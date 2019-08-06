@@ -1,0 +1,39 @@
+// 会员中心
+<template>
+  <view>
+    <view class="con">
+      
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class VIP extends wepy.page {
+    config = {
+      navigationBarTitleText: '会员中心'
+    }
+    components = {}
+
+    mixins = []
+
+    data = {
+      
+    }
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    onLoad() {
+      
+    }
+  }
+</script>
+<style lang="less">
+page{
+  background-color: #fff;
+}
+</style>
