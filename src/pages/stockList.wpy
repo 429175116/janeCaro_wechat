@@ -1,0 +1,206 @@
+// 搜索
+<template>
+  <view>
+    <view class="search">
+      <icon class="iconfont iconfangdajing searchIconLeft"></icon>
+      <input type="text" placeholder="输入编号, 名称或助记符查询" />
+      <icon class="iconfont iconloudou searchIcon"></icon>
+      <icon class="iconfont iconshu searchIcon"></icon>
+      <icon class="iconfont iconupdate searchIconRight" @tap="sortShow"></icon>
+      <icon class="iconfont iconsaoma saoma"></icon>
+    </view>
+    <view class="commodityList">
+      <view class="title">
+        <view class="name">
+          <icon class="iconfont iconupdate"></icon>
+          商品
+        </view>
+        <view>库存</view>
+        <view>均价</view>
+        <view>库存额</view>
+      </view>
+      <repeat for="{{commodityList}}" item="item">
+        <view class="item" data-id="{{item.id}}">
+          <view class="name">{{item.name}}</view>
+          <view>{{item.stock}}</view>
+          <view>{{item.price}}</view>
+          <view>{{item.allPrice}}</view>
+        </view>
+      </repeat>
+    </view>
+    <view class="operating">
+      <view>
+        <view class="export">
+          <icon class="iconfont iconsaoma"></icon>
+          导出
+        </view>
+        <view class="print">
+          <icon class="iconfont iconsaoma"></icon>
+          打印
+        </view>
+        <view class="num">0000</view>
+      </view>
+      <view class="num">8888888</view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class StockList extends wepy.page {
+    config = {
+      navigationBarTitleText: '搜索'
+    }
+    components = {}
+
+    mixins = []
+
+    data = {
+      commodityList: [
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'},
+        {'id':'1', 'name':'【C056】帆布鞋', 'stock':'1000', 'price':'100', 'allPrice':'10000'}
+      ]
+    }
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    onLoad() {
+      
+    }
+  }
+</script>
+<style lang="less">
+page{
+  background-color: #Fff;
+}
+.search{
+  width: 690rpx;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx;
+  .searchIconLeft, .searchIconRight, .searchIcon {
+    width: 70rpx;
+    height: 80rpx;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: #c2c2c2;
+    font-size: 30rpx;
+  }
+  .searchIcon{
+    color: #999;
+    font-size: 40rpx;
+    width: 30rpx !important;
+  }
+  .iconshu{
+    justify-content: flex-start !important;
+    width: 30rpx !important;
+  }
+  .searchIconLeft{
+    border-radius: 80rpx 0 0 80rpx;
+  }
+  .searchIconRight{
+    justify-content: flex-start !important;
+    width: 50rpx !important;
+    font-size: 40rpx;
+    color: #999;
+    border-radius: 0 80rpx 80rpx 0;
+  }
+   input{
+    background-color: #f7f7f7;
+    width: 435rpx;
+    height: 80rpx;
+    color: #999;
+  }
+  .saoma{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 75rpx;
+    height: 80rpx;
+    color: #999;
+    font-size: 48rpx;
+  }
+}
+.commodityList{
+  width: 710rpx;
+  height: auto;
+  padding: 20rpx;
+  margin-bottom: 130rpx;
+  .title, .item{
+    padding: 30rpx 0;
+    width: 710rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    view{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 153.33rpx;
+    }
+    .name{
+      width: 250rpx;
+    }
+  }
+  .item .name{
+    justify-content: flex-start;
+    font-weight: 600;
+  }
+}
+.operating{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  width: 710rpx;
+  height: 40rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1rpx solid #e6e6e6;
+  view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  .export{
+    margin-right: 30rpx;
+    icon{
+      color: #10b17a;
+    }
+  }
+  .print{
+    margin-right: 30rpx;
+    icon{
+      color: #999999;
+    }
+  }
+  .num{
+    color: #0067fe;
+  }
+  icon{
+    font-size: 40rpx;
+    margin-right: 15rpx;
+  }
+}
+</style>
