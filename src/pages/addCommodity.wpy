@@ -35,7 +35,7 @@
         </view>
         <icon class="iconfont iconshanchu"></icon>
       </view>
-      <view class="item">
+      <view class="item" @tap="goColorSel">
         <label class="labelColor">颜色</label>
         <icon class="iconfont iconshanchu"></icon>
       </view>
@@ -275,7 +275,10 @@
     }
 
     methods = {
-      
+      // 进入颜色选择页
+      goColorSel() {
+        this.$navigate(`/pages/colorSel`)
+      }
     }
 
     events = {

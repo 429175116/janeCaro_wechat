@@ -87,7 +87,7 @@
   import wepy from 'wepy'
   export default class InquireCommodity extends wepy.page {
     config = {
-      navigationBarTitleText: '选择城市'
+      navigationBarTitleText: '商品查询'
     }
     components = {
     }

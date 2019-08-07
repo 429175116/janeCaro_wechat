@@ -94,33 +94,33 @@
         switch (pageType) {
           case 'commodity': // 商品
             url = 'commodityList'
-            break;
+            break
           case 'storage': // 入库
             url = 'storage'
-            break;
+            break
           case 'salesOrder': // 销售单
             url = 'overhead'
-            break;
+            break
           case 'return': // 退货
             url = ''
-            break;
+            break
           case 'inventoryInquiry': // 库存查询
             url = 'stockList'
-            break;
+            break
           case 'reconciliation': // 客户对账
             url = 'reconciliation'
-            break;
+            break
           case 'receipt': // 收款单
             url = 'receipt'
-            break;
+            break
           case 'adjustment': // 库存调整单
             url = 'stockAdjustment'
-            break;
+            break
           default:
-            
-            break;
+
+            break
         }
-        if (url) {
+        if (!url) {
           wx.showModal({
             title: '',
             content: '页面缺失'

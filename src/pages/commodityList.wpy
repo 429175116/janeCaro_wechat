@@ -4,14 +4,14 @@
     <view class="search">
       <icon class="iconfont iconfangdajing searchIconLeft"></icon>
       <input type="text" placeholder="输入编号, 名称或助记符查询" />
-      <icon class="iconfont iconloudou searchIcon"></icon>
+      <icon class="iconfont iconloudou searchIcon" @tap="goInquireCommodity"></icon>
       <icon class="iconfont iconshu searchIcon"></icon>
       <icon class="iconfont iconupdate searchIconRight" @tap="sortShow"></icon>
       <icon class="iconfont iconsaoma saoma"></icon>
     </view>
     <view class="commodityList">
       <view class="addCommodity">
-        <view>
+        <view @tap="goAddCommodity">
           <icon class="iconfont iconjiahao1"></icon>
           添加商品
         </view>
@@ -42,8 +42,8 @@
       </view>
       <icon class="iconfont iconshanchu"></icon>
       <icon class="iconfont iconshare"></icon>
-      <view class="print">条码打印</view>
-      <view>批量修改</view>
+      <view class="print" @tap="goPrinting">条码打印</view>
+      <view @tap="goModifyAll">批量修改</view>
     </view>
     <view class="mask" wx:if="{{sortShowStr}}">
       <view class="maskSort">
@@ -76,7 +76,7 @@
         {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
         {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
         {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
-        {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
+        {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'}
       ],
       sortTypeList: [
         {'id': '1', 'name': '商品编号'},
@@ -101,14 +101,28 @@
         } else {
           this.sortShowStr = true
         }
+      },
+      // 进入商品查询页
+      goInquireCommodity() {
+        this.$navigate(`/pages/inquireCommodity`)
+      },
+      // 进入条码打印页
+      goPrinting() {
+        this.$navigate(`/pages/printing`)
+      },
+      // 进入批量修改页
+      goModifyAll() {
+        this.$navigate(`/pages/modifyAll`)
+      },
+      // 进入添加商品页
+      goAddCommodity() {
+        this.$navigate(`/pages/addCommodity`)
       }
     }
 
     events = {}
 
-    onLoad() {
-      
-    }
+    onLoad() {}
   }
 </script>
 <style lang="less">
