@@ -1,4 +1,4 @@
-// 开销售单
+// 收款单
 <template>
   <view>
     <view class="head">

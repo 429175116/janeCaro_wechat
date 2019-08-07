@@ -96,10 +96,10 @@
             url = 'commodityList'
             break;
           case 'storage': // 入库
-            url = ''
+            url = 'storage'
             break;
           case 'salesOrder': // 销售单
-            url = ''
+            url = 'overhead'
             break;
           case 'return': // 退货
             url = ''
@@ -117,7 +117,15 @@
             url = 'stockAdjustment'
             break;
           default:
+            
             break;
+        }
+        if (url) {
+          wx.showModal({
+            title: '',
+            content: '页面缺失'
+          })
+          return false
         }
         this.$navigate(`/pages/${url}`)
       }

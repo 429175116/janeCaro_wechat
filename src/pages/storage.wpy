@@ -1,4 +1,4 @@
-// 库存调整单
+// 入库单
 <template>
   <view>
     <view class="head">
@@ -13,6 +13,12 @@
         <view>
           <label>单据编号</label>
           <input type="text" placeholder="单据编号" value="SKD1908020007" disabled="disabled" />
+        </view>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="item">
+        <view>
+          <label>供应商</label>
         </view>
         <icon class="iconfont iconloudou"></icon>
       </view>
@@ -34,6 +40,12 @@
         <view>
           <label>仓库</label>
           <input type="text" placeholder="仓库" value="总仓库" disabled="disabled" />
+        </view>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="item">
+        <view>
+          <label>收入类型</label>
         </view>
         <icon class="iconfont iconloudou"></icon>
       </view>
@@ -119,9 +131,9 @@
 
 <script>
   import wepy from 'wepy'
-  export default class StockAdjustment extends wepy.page {
+  export default class Storage extends wepy.page {
     config = {
-      navigationBarTitleText: '库存调整单'
+      navigationBarTitleText: '入库单'
     }
     components = {}
 

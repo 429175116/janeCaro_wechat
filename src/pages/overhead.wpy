@@ -181,9 +181,9 @@
 
 <script>
   import wepy from 'wepy'
-  export default class OverheadSearch extends wepy.page {
+  export default class Overhead extends wepy.page {
     config = {
-      navigationBarTitleText: '简卡罗'
+      navigationBarTitleText: '开销售单'
     }
     components = {}
 
