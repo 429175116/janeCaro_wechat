@@ -51,6 +51,7 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/index', // 首页
+      'pages/stockAdjustment', // 库存调整单
       'pages/receipt', // 收款单
       'pages/VIP', // 会员中心
       'pages/consumption', // 消费记录

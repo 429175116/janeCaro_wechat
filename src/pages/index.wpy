@@ -114,7 +114,7 @@
             url = 'receipt'
             break;
           case 'adjustment': // 库存调整单
-            url = ''
+            url = 'stockAdjustment'
             break;
           default:
             break;
