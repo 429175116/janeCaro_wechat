@@ -52,20 +52,6 @@
         <view>全部清空</view>
       </view>
     </view>
-    <view class="operating">
-      <view class="item">调申请单</view>
-      <view class="item">分享</view>
-      <view class="item print">打印</view>
-      <view class="item">保存</view>
-      <view class="item">过账</view>
-    </view>
-    <view class="mask" wx:if="{{selTypeShow}}">
-      <view class="maskSort">
-        <repeat for="{{selTypeList}}" item="item">
-          <view class="item" data-id="{{item.id}}">{{item.name}}</view>
-        </repeat>
-      </view>
-    </view>
     <view class="commodityInfo">
       <image src="/assets/images/3.jpg"></image>
       <view class="con">
@@ -144,6 +130,27 @@
         </view>
       </view>
     </view>
+    <!-- <view class="operating">
+      <view class="item">调申请单</view>
+      <view class="item">分享</view>
+      <view class="item print">打印</view>
+      <view class="item">保存</view>
+      <view class="item">过账</view>
+    </view> -->
+    <view class="operating">
+      <view class="item">更多</view>
+      <view class="item">分享</view>
+      <view class="item">打印</view>
+      <view class="item" @tap="goCourse">单据历程</view>
+      <view class="item">冲红</view>
+    </view>
+    <view class="mask" wx:if="{{selTypeShow}}">
+      <view class="maskSort">
+        <repeat for="{{selTypeList}}" item="item">
+          <view class="item" data-id="{{item.id}}">{{item.name}}</view>
+        </repeat>
+      </view>
+    </view>
     <view class="mask" wx:if="{{selClientShow}}">
       <view class="maskSort">
         <view class="title">选择客户</view>
@@ -191,7 +198,7 @@
 
     data = {
       tableShow: false,
-      selClientShow: true,
+      selClientShow: false,
       tableHeadList: [
         {'id': '1', 'name': '全部'},
         {'id': '1', 'name': '草稿'},
@@ -220,6 +227,10 @@
         } else {
           this.selTypeShow = true
         }
+      },
+      // 进入单据历程
+      goCourse() {
+        this.$navigate(`/pages/course`)
       }
     }
 

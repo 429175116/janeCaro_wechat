@@ -20,7 +20,7 @@
         <view>库存额</view>
       </view>
       <repeat for="{{commodityList}}" item="item">
-        <view class="item" data-id="{{item.id}}">
+        <view class="item" data-id="{{item.id}}" @tap="goBookInfo">
           <view class="name">{{item.name}}</view>
           <view>{{item.stock}}</view>
           <view>{{item.price}}</view>
@@ -73,7 +73,12 @@
 
     computed = {}
 
-    methods = {}
+    methods = {
+      // 进入明细账本
+      goBookInfo() {
+        this.$navigate(`/pages/bookInfo`)
+      }
+    }
 
     events = {}
 
