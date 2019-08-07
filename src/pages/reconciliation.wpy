@@ -10,135 +10,51 @@
     </view>
     
     <view class="list">
-      <view class="item">
-        <view class="listItem">
-          <view class="userInfo">
-            <image src="/assets/images/3.jpg"></image>
-            <text>二狗子</text>
-          </view>
-          <view class="dataDom">
-            <view>
-              累计欠款：
-              <text>2000</text>
+      <repeat for="{{list}}" item="item">
+        <view class="item" data-id="{{item.id}}" @tap="goReconciliationDetails">
+          <view class="listItem">
+            <view class="userInfo">
+              <image src="{{item.img}}"></image>
+              <text>{{item.name}}</text>
             </view>
-            <view>
-              储蓄余额：
-              <text>0</text>
-            </view>
-          </view>
-        </view>
-        <view class="listItem">
-          <view class="dataDom">
-            <view>
-              本期已收：2000
-            </view>
-            <view>
-              期初余额：22
+            <view class="dataDom">
+              <view>
+                累计欠款：
+                <text>{{item.arrears}}</text>
+              </view>
+              <view>
+                储蓄余额：
+                <text>{{item.saving}}</text>
+              </view>
             </view>
           </view>
-          <view class="dataDom">
-            <view>
-              本期已收：2000
+          <view class="listItem">
+            <view class="dataDom">
+              <view>
+                本期已收：{{item.income_1}}
+              </view>
+              <view>
+                期初余额：{{item.balance_1}}
+              </view>
             </view>
-            <view>
-              期初余额：0
+            <view class="dataDom">
+              <view>
+                本期已收：{{item.income_2}}
+              </view>
+              <view>
+                期初余额：{{item.balance_2}}
+              </view>
             </view>
           </view>
-        </view>
-        <view class="listItem">
-          <view class="userInfo">
-            <icon class="iconfont icondianhua"></icon>
-            18888888888
-          </view>
-          <view></view>
-        </view>
-      </view>
-      <view class="item">
-        <view class="listItem">
-          <view class="userInfo">
-            <image src="/assets/images/3.jpg"></image>
-            <text>二狗子</text>
-          </view>
-          <view class="dataDom">
-            <view>
-              累计欠款：
-              <text>2000</text>
+          <view class="listItem">
+            <view class="userInfo">
+              <icon class="iconfont icondianhua"></icon>
+              {{item.phone}}
             </view>
-            <view>
-              储蓄余额：
-              <text>0</text>
-            </view>
+            <view></view>
           </view>
         </view>
-        <view class="listItem">
-          <view class="dataDom">
-            <view>
-              本期已收：2000
-            </view>
-            <view>
-              期初余额：22
-            </view>
-          </view>
-          <view class="dataDom">
-            <view>
-              本期已收：2000
-            </view>
-            <view>
-              期初余额：0
-            </view>
-          </view>
-        </view>
-        <view class="listItem">
-          <view class="userInfo">
-            <icon class="iconfont icondianhua"></icon>
-            18888888888
-          </view>
-          <view></view>
-        </view>
-      </view>
-      <view class="item">
-        <view class="listItem">
-          <view class="userInfo">
-            <image src="/assets/images/3.jpg"></image>
-            <text>二狗子</text>
-          </view>
-          <view class="dataDom">
-            <view>
-              累计欠款：
-              <text>2000</text>
-            </view>
-            <view>
-              储蓄余额：
-              <text>0</text>
-            </view>
-          </view>
-        </view>
-        <view class="listItem">
-          <view class="dataDom">
-            <view>
-              本期已收：2000
-            </view>
-            <view>
-              期初余额：22
-            </view>
-          </view>
-          <view class="dataDom">
-            <view>
-              本期已收：2000
-            </view>
-            <view>
-              期初余额：0
-            </view>
-          </view>
-        </view>
-        <view class="listItem">
-          <view class="userInfo">
-            <icon class="iconfont icondianhua"></icon>
-            18888888888
-          </view>
-          <view></view>
-        </view>
-      </view>
+      </repeat>
     </view>
     <view class="operating">
       <view class="item">
@@ -184,13 +100,65 @@
     mixins = []
 
     data = {
-      
+      list: [
+        {
+          'id': '1',
+          'name': '二狗子',
+          'img': '/assets/images/3.jpg',
+          'arrears': '2000',
+          'saving': '1000',
+          'income_1': '1000',
+          'balance_1': '1000',
+          'income_2': '2000',
+          'balance_2': '1000',
+          'phone': '13333333333'
+        },
+        {
+          'id': '1',
+          'name': '二狗子',
+          'img': '/assets/images/3.jpg',
+          'arrears': '2000',
+          'saving': '1000',
+          'income_1': '1000',
+          'balance_1': '1000',
+          'income_2': '2000',
+          'balance_2': '1000',
+          'phone': '13333333333'
+        },
+        {
+          'id': '1',
+          'name': '二狗子',
+          'img': '/assets/images/3.jpg',
+          'arrears': '2000',
+          'saving': '1000',
+          'income_1': '1000',
+          'balance_1': '1000',
+          'income_2': '2000',
+          'balance_2': '1000',
+          'phone': '13333333333'
+        },
+        {
+          'id': '1',
+          'name': '二狗子',
+          'img': '/assets/images/3.jpg',
+          'arrears': '2000',
+          'saving': '1000',
+          'income_1': '1000',
+          'balance_1': '1000',
+          'income_2': '2000',
+          'balance_2': '1000',
+          'phone': '13333333333'
+        }
+      ]
     }
 
     computed = {}
 
     methods = {
-    
+      // 进入客户对账详情
+      goReconciliationDetails() {
+        this.$navigate(`/pages/reconciliationDetails`)
+      }
     }
 
     events = {}

@@ -7,11 +7,11 @@
         <icon class="iconfont iconkaiguanguan"></icon>
       </view>
       <view class="item">
-        <text>显示商品</text>
+        <text>按单汇总</text>
         <icon class="iconfont iconkaiguanguan1 active"></icon>
       </view>
       <view class="item time">
-        <text>显示商品</text>
+        <text>时间范围</text>
         <view class="time">
           <input type="text" varue="" placeholder="开始时间" />
           -
