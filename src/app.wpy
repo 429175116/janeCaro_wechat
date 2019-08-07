@@ -50,9 +50,11 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
+      'pages/index', // 首页
+      'pages/receipt', // 收款单
       'pages/VIP', // 会员中心
       'pages/consumption', // 消费记录
-            'pages/course', // 单据历程
+      'pages/course', // 单据历程
       'pages/bookInfo', // 账本明细
       'pages/stockList', // 库存查询
       'pages/reconciliation', // 客户对账
@@ -64,7 +66,6 @@ export default class extends wepy.app {
       'pages/printer', // 打印机管开销售单理
       'pages/addCommodity', // 添加商品--商品档案
       'pages/commodityList', // 商品档案
-      'pages/index', // 首页
       'pages/search', // 搜索
       'pages/inquireCommodity', // 商品查询
       'pages/printing', // 条码打印

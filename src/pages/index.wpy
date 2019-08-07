@@ -37,35 +37,35 @@
       </ul>
     </view>
     <view class="functionList">
-      <view>
+      <view @tap="goPage" data-type="commodity">
         <image src="/assets/images/commodity_icon.png"></image>
         <text>商品</text>
       </view>
-      <view>
+      <view @tap="goPage" data-type="storage">
         <image src="/assets/images/storage_icon.png"></image>
         <text>入库</text>
       </view>
-      <view>
+      <view @tap="goPage" data-type="salesOrder">
         <image src="/assets/images/salesOrder_icon.png"></image>
         <text>销售单</text>
       </view>
-      <view>
+      <view @tap="goPage" data-type="return">
         <image src="/assets/images/return_icon.png"></image>
         <text>退货</text>
       </view>
-      <view>
+      <view @tap="goPage" data-type="inventoryInquiry">
         <image src="/assets/images/inventoryInquiry_icon.png"></image>
         <text>库存查询</text>
       </view>
-      <view>
+      <view @tap="goPage" data-type="reconciliation">
         <image src="/assets/images/reconciliation_icon.png"></image>
         <text>客户对账</text>
       </view>
-      <view>
+      <view @tap="goPage" data-type="receipt">
         <image src="/assets/images/receipt_icon.png"></image>
         <text>收款单</text>
       </view>
-      <view>
+      <view @tap="goPage" data-type="adjustment">
         <image src="/assets/images/adjustment_icon.png"></image>
         <text>库存调整单</text>
       </view>
@@ -87,7 +87,41 @@
 
     computed = {}
 
-    methods = {}
+    methods = {
+      goPage(e) {
+        let pageType = e.currentTarget.dataset.type
+        let url = ''
+        switch (pageType) {
+          case 'commodity': // 商品
+            url = 'commodityList'
+            break;
+          case 'storage': // 入库
+            url = ''
+            break;
+          case 'salesOrder': // 销售单
+            url = ''
+            break;
+          case 'return': // 退货
+            url = ''
+            break;
+          case 'inventoryInquiry': // 库存查询
+            url = 'stockList'
+            break;
+          case 'reconciliation': // 客户对账
+            url = 'reconciliation'
+            break;
+          case 'receipt': // 收款单
+            url = 'receipt'
+            break;
+          case 'adjustment': // 库存调整单
+            url = ''
+            break;
+          default:
+            break;
+        }
+        this.$navigate(`/pages/${url}`)
+      }
+    }
 
     events = {}
 

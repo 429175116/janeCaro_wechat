@@ -1,0 +1,414 @@
+// 开销售单
+<template>
+  <view>
+    <view class="head">
+      <icon class="iconfont iconloudou"></icon>
+    </view>
+    <view class="list">
+      <view class="item">
+        <label>表头信息</label>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="item">
+        <view>
+          <label>单据编号</label>
+          <input type="text" placeholder="单据编号" value="SKD1908020007" disabled="disabled" />
+        </view>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="item">
+        <view>
+          <label>客户</label>
+          <input type="text" placeholder="点击选择客户" disabled="disabled" />
+        </view>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="item">
+        <view>
+          <label>业务日期</label>
+          <input type="text" placeholder="业务日期" value="2019-08-02" disabled="disabled" />
+        </view>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="item">
+        <view>
+          <label>经手人</label>
+          <input type="text" placeholder="经手人" value="管理员" disabled="disabled" />
+        </view>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <label>优惠信息</label>
+      </view>
+      <view class="item">
+        <label class="descriptionText">优惠</label>
+        <view class="descriptionText">
+            无优惠
+        </view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <view>
+          <label>收款信息</label>
+        </view>
+      </view>
+      <view class="addList descriptionText">
+        添加收款
+      </view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <label class="buttonLabel">收款信息</label>
+        <view class="descriptionText">
+            添加收款<text class="price">￥20000</text>
+        </view>
+      </view>
+    </view>
+    <view class="list bottomList">
+      <view class="item">
+        <label>附件信息</label>
+        <icon class="iconfont iconloudou"></icon>
+      </view>
+      <view class="addList">
+        <view>
+          <icon class="iconfont iconshanchu"></icon>
+          <text>点击上传照片视频等</text>
+          <!-- <text>添加商品</text> -->
+        </view>
+      </view>
+    </view>
+
+    <view class="operating">
+      <view class="item">分享</view>
+      <view class="item print">打印</view>
+      <view class="item">保存</view>
+      <view class="item">过账</view>
+    </view>
+    <!-- <view class="mask" wx:if="{{selClientShow}}">
+      <view class="maskSort">
+        <view class="title">选择客户</view>
+        <repeat for="{{selClientList}}" item="item">
+          <view class="item" data-id="{{item.id}}">
+            <icon class="iconfont iconxuanzhong active"></icon>
+            <icon class="iconfont iconkuang"></icon>
+            {{item.name}}
+          </view>
+        </repeat>
+        <view class="button">
+          <view>取消</view>
+          <view class="active">确认</view>
+        </view>
+      </view>
+    </view>
+    <view class="mask" wx:if="{{tableShow}}">
+      <view class="maskSort">
+        <view class="title">表头显示</view>
+        <repeat for="{{tableHeadList}}" item="item">
+          <view class="item" data-id="{{item.id}}">
+            <icon class="iconfont iconxuanzhong active"></icon>
+            <icon class="iconfont iconkuang"></icon>
+            {{item.name}}
+          </view>
+        </repeat>
+        <view class="button">
+          <view>取消</view>
+          <view class="active">确认</view>
+        </view>
+      </view>
+    </view> -->
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Receipt extends wepy.page {
+    config = {
+      navigationBarTitleText: '收款单'
+    }
+    components = {}
+
+    mixins = []
+
+    data = {
+      tableShow: false,
+      selClientShow: false,
+      tableHeadList: [
+        {'id': '1', 'name': '全部'},
+        {'id': '1', 'name': '草稿'},
+        {'id': '1', 'name': '已过账'},
+        {'id': '1', 'name': '已结算'},
+        {'id': '1', 'name': '已红冲'},
+        {'id': '1', 'name': '已冲单'}
+      ],
+      selClientList: [
+        {'id': '1', 'name': '全部'},
+        {'id': '1', 'name': '草稿'},
+        {'id': '1', 'name': '已过账'},
+        {'id': '1', 'name': '已结算'},
+        {'id': '1', 'name': '已红冲'},
+        {'id': '1', 'name': '已冲单'}
+      ],
+    }
+
+    computed = {}
+
+    methods = {
+      selType() {
+        console.log(11)
+        if (this.selTypeShow) {
+          this.selTypeShow = false
+        } else {
+          this.selTypeShow = true
+        }
+      }
+    }
+
+    events = {}
+
+    onLoad() {}
+  }
+</script>
+<style lang="less">
+page{
+  background-color: #Fff;
+}
+.bottomList{
+  margin-bottom: 120rpx;
+}
+.head{
+  width: 690rpx;
+  height: 40rpx;
+  padding: 20rpx 30rpx;
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  view{
+    margin-left: 30rpx;
+    font-size: 28rpx;
+    color: #666666;
+  }
+  icon{
+    font-size: 40rpx;
+    color: #666666;
+  }
+}
+icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list:nth-child(1) {
+  border-width: 0;
+}
+.addList{
+  width: 690rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  view{
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid #cdcdcd;
+    color: #cdcdcd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  icon{
+    font-size: 55rpx;
+    color: #cdcdcd;
+  }
+  text{
+    font-size: 25rpx;
+    margin-top: 20rpx;
+  }
+}
+.iconList{
+  padding-left: 30rpx;
+  color: #666666;
+}
+.list{
+  width: 750rpx;
+  height: auto;
+  border-top: 10rpx solid #f2f2f2;
+  .item{
+    width: 690rpx;
+    padding: 30rpx;
+    height: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    view{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text{
+        color: #e63142;
+        padding-left: 30rpx
+      }
+    }
+    input{
+      margin-left: 30rpx;
+    }
+    label{
+      font-size: 30rpx;
+      font-weight: 600;
+    }
+    icon{
+      font-size: 30rpx;
+      color: #999;
+    }
+  }
+}
+.price{
+  color: #e63142;
+}
+.prompt{
+  color: #999999;
+  font-size: 25rpx;
+}
+.operating{
+  width: 690rpx;
+  height: 40rpx;
+  padding: 30rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 600;
+  .print{
+    color: #0067fe;
+  }
+}
+.maskSort{
+  width: 465rpx;
+  height: auto;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx  #999;
+  background-color: #fff;
+  .item{
+    margin: 0 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 405rpx;
+    height: 90rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+  }
+}
+.commodityInfo{
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 690rpx;
+  height: 120rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  image{
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 20rpx;
+  }
+  .con{
+    width: 550rpx;
+    height: 120rpx;
+    display: flex;
+    // align-items: space-around;
+    justify-content: space-between;
+    flex-direction: column;
+    color: #666666;
+  }
+  .name{
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #333;
+  }
+  .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .price{
+    font-size: 30rpx;
+  }
+}
+.maskSort{
+  width: 465rpx;
+  height: auto;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx  #999;
+  background-color: #fff;
+  .active{
+    color: #0067fe !important;
+  }
+  .title{
+    width: 465rpx;
+    height: 90rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #333;
+  }
+  .button{
+    width: 465rpx;
+    height: 90rpx;
+    border-top: 1rpx solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    view{
+      width: 232.5rpx;
+      height: 90rpx;
+      font-size: 30rpx;
+      font-weight: 600;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .item{
+    margin: 0 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 405rpx;
+    height: 90rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+    icon{
+      font-size: 35rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20rpx;
+      color: #999;
+    }
+    
+  }
+}
+.descriptionText{
+  font-weight: 500 !important;
+  color: #333 !important;
+}
+.buttonLabel{
+  background-color: #E8F1FF;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+  color: #0067fe;
+}
+</style>
