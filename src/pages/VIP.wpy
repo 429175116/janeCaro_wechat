@@ -1,8 +1,78 @@
 // 会员中心
 <template>
   <view>
-    <view class="con">
-      
+    <image class="topBG" src="/assets/images/topbg.png"></image>
+    <view class="userInfo">
+      <image class="bg" src="/assets/images/vipBg.png"></image>
+      <view class="userInfoShow">
+        <view class="info">
+          <image src="/assets/images/3.jpg"></image>
+          <view class="infoShow">
+            <view class="name">
+              <text>二狗子</text>
+              <view>普通会员</view>
+            </view>
+            <view>电话：13333333333</view>
+            <view>生日：1999.09.01</view>
+            <view>鞋码：38</view>
+          </view>
+        </view>
+        <view class="balance">
+          余额：
+          <text>1000</text>
+        </view>
+        <view class="button">
+          <view>立即开通</view>
+        </view>
+      </view>
+    </view>
+    <view class="recording">
+      <text>消费记录</text>
+      <icon class="iconfont iconjiantouYou"></icon>
+    </view>
+    <view class="titleType">
+      <view>代金券购买</view>
+      <view class="active">我的代金券</view>
+    </view>
+    <view class="voucher">
+      <view class="item active">
+        <view class="con">
+          <view class="type">
+            <view>
+              ￥<text>33</text>
+            </view>
+            <view>30元代金券</view>
+          </view>
+          <view class="info">
+            <text class="period">有效期</text>
+            <text class="time">2019.09.11-2019.09-11</text>
+            <text class="description">适用于所有商品</text>
+          </view>
+        </view>
+        <view class="img">
+          <image class="bg" src="/assets/images/voucher1.png"></image>
+          <text>立即使用</text>
+        </view>
+      </view>
+      <view class="item">
+        <view class="con">
+          <view class="type">
+            <view>
+              ￥<text>33</text>
+            </view>
+            <view>30元代金券</view>
+          </view>
+          <view class="info">
+            <text class="period">有效期</text>
+            <text class="time">2019.09.11-2019.09-11</text>
+            <text class="description">适用于所有商品</text>
+          </view>
+        </view>
+        <view class="img">
+          <image class="bg" src="/assets/images/voucher0.png"></image>
+          <text>立即使用</text>
+        </view>
+      </view>
     </view>
   </view>
 </template>
@@ -34,6 +104,213 @@
 </script>
 <style lang="less">
 page{
+  background-color: #f9f9f9;
+}
+.topBG{
+  width: 100vw;
+  height: 260rpx;
+  position: absolute;
+}
+.userInfo{
+  top: 75rpx;
+  width: 625rpx;
+  height: 400rpx;
+  margin: auto;
+  position: relative;
+  border-radius: 10rpx;
+  .bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    border-radius: 10rpx;
+  }
+  .userInfoShow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 525rpx;
+    height: 300rpx;
+    padding: 50rpx;
+    z-index: 20;
+    color: #e6c6a3;
+    .info{
+      width: 100%;
+      display: flex;
+      // align-items: center;
+      justify-content: flex-start;
+      font-size: 26rpx;
+      image{
+        width: 90rpx;
+        height: 90rpx;
+        border-radius: 90rpx;
+        margin-right: 30rpx;
+      }
+      .name{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10rpx 0;
+        margin-bottom: 15rpx;
+        text{
+          font-size: 35rpx;
+          font-weight: 600;
+        }
+        view{
+          border: 1rpx solid #e6c6a3;
+          color: #fff;
+          font-size: 20rpx;
+          padding: 5rpx 15rpx;
+          margin-left: 20rpx;
+          border-radius: 10rpx;
+        }
+      }
+    }
+    .balance{
+      margin-top: 35rpx;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      font-size: 25rpx;
+      text{
+        font-size: 33rpx;
+        font-weight: 600;
+      }
+    }
+    .button{
+      display: flex;
+      // align-items: center;
+      justify-content: center;
+      view{
+        margin-top: 20rpx;
+        font-size: 35rpx;
+        font-weight: 600;
+        padding: 30rpx 45rpx;
+        color: #2e2e2f;
+        background-color: #e6c6a3;
+        border-radius: 100rpx;
+        box-shadow:  1rpx 1rpx 5rpx 5rpx #f9ecdd inset;
+      }
+    }
+  }
+}
+.recording{
+  width: 690rpx;
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #fff;
+  margin-top: 170rpx;
+  icon{
+    color: #999;
+  }
+}
+.titleType{
+  width: 690rpx;
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  margin-top: 10rpx;
+  view{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .active{
+    color: #333333;
+    font-weight: 600;
+  }
+}
+.voucher{
+  width: 750rpx;
+  height: auto;
+  .item{
+    width: 690rpx;
+    margin: 15rpx 30rpx;
+    height: 178rpx;
+    border: 1rpx solid #b18a3e;
+    border-radius: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .con{
+    width: 577rpx;
+    height: 148rpx;
+    padding: 15rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .active .type{
+    color: #b18a3e;
+  }
+  .type{
+    width: 205rpx;
+    height: 100%;
+    border-right: 1rpx dashed #d7d7d7;
+    font-size: 30rpx;
+    color: #a3a3a3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text{
+      font-size: 55rpx;
+      font-weight: 600;
+    }
+  }
+  .info{
+    width: 321rpx;
+    padding: 0 25rpx;
+    height: 125rpx;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    font-size: 22rpx;
+    .period{
+      color: #a3a3a3;
+    }
+    .time{
+      color: #4a4a4a;
+    }
+    .description{
+      background-color: #f7f3eb;
+      color: #b18a3e;
+      padding: 5rpx 20rpx;
+    }
+  }
+  
+  .img{
+    width: 113rpx;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text{
+      width: 28rpx;
+      z-index: 10;
+      color: #fff;
+    }
+    image{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 </style>
