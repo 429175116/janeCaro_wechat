@@ -62,7 +62,7 @@ export default class extends wepy.app {
       'pages/stockList', // 库存查询
       'pages/reconciliation', // 客户对账
       'pages/reconciliationDetails' , // 客户对账--详情
-      'pages/salesTwo', // 开销售单耳机
+      'pages/salesTwo', // 开销售单二级
       'pages/billingEditor', // 开单编辑
       'pages/overhead', // 开销售单
       'pages/overheadSearch', // 开销售单--搜索列表

@@ -2,7 +2,7 @@
 <template>
   <view>
     <view class="head">
-      <icon class="iconfont iconloudou"></icon>
+      <icon class="iconfont iconloudou" @tap="goOverheadSearch"></icon>
     </view>
     <view class="list">
       <view class="item">
@@ -16,7 +16,7 @@
         </view>
         <icon class="iconfont iconloudou"></icon>
       </view>
-      <view class="item">
+      <view class="item" @tap="goReconciliationDetails">
         <view>
           <label>此前应收</label>
           <text>￥2</text>
@@ -33,7 +33,7 @@
     </view>
     <view class="list">
       <view class="item">
-        <label>客户</label>
+        <label>商品信息</label>
         <view>
           <icon class="iconfont iconloudou iconList"></icon>
           <icon class="iconfont iconloudou iconList"></icon>
@@ -42,7 +42,7 @@
         </view>
       </view>
       <view class="addList">
-        <view>
+        <view @tap="goSalesTwo">
           <icon class="iconfont iconshanchu"></icon>
           <text>添加商品</text>
         </view>
@@ -52,7 +52,7 @@
         <view>全部清空</view>
       </view>
     </view>
-    <view class="commodityInfo">
+    <view class="commodityInfo" @tap="goBillingEditor">
       <image src="/assets/images/3.jpg"></image>
       <view class="con">
         <view class="name">商品名称商品名称</view>
@@ -130,20 +130,20 @@
         </view>
       </view>
     </view>
-    <!-- <view class="operating">
+    <view class="operating">
       <view class="item">调申请单</view>
       <view class="item">分享</view>
-      <view class="item print">打印</view>
+      <view class="item print" @tap="goPrinter">打印</view>
       <view class="item">保存</view>
       <view class="item">过账</view>
-    </view> -->
-    <view class="operating">
+    </view>
+    <!-- <view class="operating">
       <view class="item">更多</view>
       <view class="item">分享</view>
       <view class="item">打印</view>
       <view class="item" @tap="goCourse">单据历程</view>
       <view class="item">冲红</view>
-    </view>
+    </view> -->
     <view class="mask" wx:if="{{selTypeShow}}">
       <view class="maskSort">
         <repeat for="{{selTypeList}}" item="item">
@@ -231,6 +231,26 @@
       // 进入单据历程
       goCourse() {
         this.$navigate(`/pages/course`)
+      },
+      // 进入搜索列表
+      goOverheadSearch() {
+        this.$navigate(`/pages/overheadSearch`)
+      },
+      // 进入客户对账
+      goReconciliationDetails() {
+        this.$navigate(`/pages/reconciliationDetails`)
+      },
+      // 进入开销售单-二级
+      goSalesTwo() {
+        this.$navigate(`/pages/salesTwo`)
+      },
+      // 打印机管理
+      goPrinter() {
+        this.$navigate(`/pages/printer`)
+      },
+      // 进入开销售单-编辑
+      goBillingEditor() {
+        this.$navigate(`/pages/billingEditor`)
       }
     }
 
