@@ -110,7 +110,7 @@
         {
           'id': '1',
           'name': '二狗子',
-          'img': '/assets/images/3.jpg',
+          'img': 'https://www2.flightclub.cn/news/uploads/allimg/190808/12-1ZPQ04627.jpg',
           'arrears': '2000',
           'saving': '1000',
           'income_1': '1000',
@@ -122,7 +122,7 @@
         {
           'id': '1',
           'name': '二狗子',
-          'img': '/assets/images/3.jpg',
+          'img': 'https://www2.flightclub.cn/news/uploads/allimg/190808/12-1ZPQ04627.jpg',
           'arrears': '2000',
           'saving': '1000',
           'income_1': '1000',
@@ -134,7 +134,7 @@
         {
           'id': '1',
           'name': '二狗子',
-          'img': '/assets/images/3.jpg',
+          'img': 'https://www2.flightclub.cn/news/uploads/allimg/190808/12-1ZPQ04627.jpg',
           'arrears': '2000',
           'saving': '1000',
           'income_1': '1000',
@@ -146,7 +146,7 @@
         {
           'id': '1',
           'name': '二狗子',
-          'img': '/assets/images/3.jpg',
+          'img': 'https://www2.flightclub.cn/news/uploads/allimg/190808/12-1ZPQ04627.jpg',
           'arrears': '2000',
           'saving': '1000',
           'income_1': '1000',

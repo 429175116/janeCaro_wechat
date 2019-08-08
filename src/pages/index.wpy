@@ -160,7 +160,65 @@
 
     events = {}
 
-    onLoad() {}
+    onLoad() {
+//       var myDate = new Date();
+//       var mytime=myDate.getTime()/1000;   //获取当前时间
+// // myDate.toLocaleString( ); 
+//       console.log(mytime)
+      // var timerName = setInterval(this.countTime(), 1000)
+      // setTimeout(this.countTime(),1000);  
+      // this.countTime()
+    }
+    countTime() {
+      var now = 1565253588
+      var end = 1565276400
+      setInterval(e => {
+          now++
+          var times = end-now; 
+          console.log(end, now, times)
+          if (times > 0) {
+            var endOutStr = ''
+            let day = Math.floor(times / (60 * 60 * 24));
+            let hour = Math.floor(times / (60 * 60)) - (day * 24);
+            let minute = Math.floor(times / 60) - (day * 24 * 60) - (hour * 60);
+            let second = times - (day * 24 * 60) - (hour * 60 * 60) - (minute * 60)
+            if (parseInt(day) != 0) {
+              endOutStr = `${day}天${hour}时${minute}分${second}秒`
+            } else if (parseInt(hour) != 0) {
+              endOutStr = `${hour}时${minute}分${second}秒`
+              
+            } else if (parseInt(minute) != 0)  {
+              endOutStr = `${minute}分${second}秒`
+            } else if (parseInt(second) != 0)  {
+              endOutStr = `${second}秒`
+            }
+          }else{
+            endOutStr = '0秒'
+          }
+          console.log(endOutStr)
+          return endOutStr
+      }, 1000) 
+    }
+    formatDate(times) {
+if (times > 0) {
+            var endOutStr = ''
+            let day = Math.floor(times / (60 * 60 * 24));
+            let hour = Math.floor(times / (60 * 60)) - (day * 24);
+            let minute = Math.floor(times / 60) - (day * 24 * 60) - (hour * 60);
+            if (parseInt(day) != 0) {
+                endOutStr = day + "天" + hour + "小時" + minute + "分鐘"
+            } else {
+                if (parseInt(hour) != 0) {
+                    endOutStr = hour + "小時" + minute + "分鐘"
+                } else {
+                    endOutStr = minute + "分鐘"
+                }
+            }
+        }else{
+            endOutStr = 0
+        }
+        return endOutStr
+}
   }
 </script>
 <style lang="less">

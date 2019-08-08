@@ -28,7 +28,7 @@
         <repeat for="{{commodityList}}" item="item" index="index">
           <view class="item" data-id="{{item.id}}">
             <icon data-index="{{index}}" @tap="selected" class="iconfont {{item.sel == 1 ? 'iconxuanzhong':'iconkuang'}}"></icon>
-            <image src="/assets/images/3.jpg"></image>
+            <image src="https://www2.flightclub.cn/news/uploads/allimg/190808/12-1ZPQ04627.jpg"></image>
             【狗子007】{{item.name}}
           </view>
         </repeat>
@@ -51,6 +51,7 @@
     </view>
     <view class="mask" wx:if="{{sortShowStr}}">
       <view class="maskSort">
+        <icon class="iconfont iconTo_close closed" @tap="sortShow"></icon>
         <repeat for="{{sortTypeList}}" item="item">
           <view class="item" data-id="{{item.id}}">{{item.name}}</view>
         </repeat>
@@ -100,6 +101,16 @@
     computed = {}
 
     methods = {
+      // 扫码
+      saoma() {
+        wx.scanCode({
+          onlyFromCamera:true,
+          success: res => {
+            console.log(res)
+          }
+        })
+      },
+      // 单选
       selected(e) {
         let index = e.currentTarget.dataset.index
         if (this.commodityList[index].sel) {
@@ -326,6 +337,15 @@ page{
   border-radius: 10rpx;
   box-shadow: 5rpx 5rpx 5rpx  #999;
   background-color: #fff;
+  position: relative;
+  .closed{
+    position: absolute;
+    top: -10rpx;
+    right: -10rpx;
+    color: #e63042;
+    font-size: 40rpx;
+    
+  }
   .item{
     margin: 0 30rpx;
     display: flex;

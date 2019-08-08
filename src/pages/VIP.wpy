@@ -12,7 +12,7 @@
       <image class="bg" src="/assets/images/vipBg.png"></image>
       <view class="userInfoShow">
         <view class="info">
-          <image src="/assets/images/3.jpg"></image>
+          <image src="https://www2.flightclub.cn/news/uploads/allimg/190808/12-1ZPQ04627.jpg"></image>
           <view class="infoShow">
             <view class="name">
               <text>二狗子</text>

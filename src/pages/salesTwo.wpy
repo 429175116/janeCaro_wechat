@@ -29,7 +29,7 @@
         <repeat for="{{commodityList}}" item="item">
           <view class="item" data-id="{{item.id}}">
             <icon class="iconfont {{item.sel == 1 ? 'iconxuanzhong':'iconkuang'}}"></icon>
-            <image src="/assets/images/3.jpg"></image>
+            <image src="https://www2.flightclub.cn/news/uploads/allimg/190808/12-1ZPQ04627.jpg"></image>
             <view class="info">
               <text class="name">【狗子007】{{item.name}}</text>
               <view class="details">
@@ -61,7 +61,7 @@
     <view class="mask">
       <view class="conOrder">
         <view class="commodity">
-          <image src="/assets/images/3.jpg"></image>
+          <image src="https://www2.flightclub.cn/news/uploads/allimg/190808/12-1ZPQ04627.jpg"></image>
           <view>
             <view class="name">鞋名字</view>
             <view>库存：100双</view>
