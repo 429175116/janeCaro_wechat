@@ -161,12 +161,6 @@
     events = {}
 
     onLoad() {
-//       var myDate = new Date();
-//       var mytime=myDate.getTime()/1000;   //获取当前时间
-// // myDate.toLocaleString( ); 
-//       console.log(mytime)
-      // var timerName = setInterval(this.countTime(), 1000)
-      // setTimeout(this.countTime(),1000);  
       // this.countTime()
     }
     countTime() {
@@ -199,26 +193,6 @@
           return endOutStr
       }, 1000) 
     }
-    formatDate(times) {
-if (times > 0) {
-            var endOutStr = ''
-            let day = Math.floor(times / (60 * 60 * 24));
-            let hour = Math.floor(times / (60 * 60)) - (day * 24);
-            let minute = Math.floor(times / 60) - (day * 24 * 60) - (hour * 60);
-            if (parseInt(day) != 0) {
-                endOutStr = day + "天" + hour + "小時" + minute + "分鐘"
-            } else {
-                if (parseInt(hour) != 0) {
-                    endOutStr = hour + "小時" + minute + "分鐘"
-                } else {
-                    endOutStr = minute + "分鐘"
-                }
-            }
-        }else{
-            endOutStr = 0
-        }
-        return endOutStr
-}
   }
 </script>
 <style lang="less">
