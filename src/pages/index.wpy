@@ -1,16 +1,17 @@
 /*
  * @Author: luow 
  * @Date: 2019-08-08 10:15:14 
- * @Last Modified by:   luow 
- * @Last Modified time: 2019-08-08 10:15:14 
+ * @Last Modified by: luow
+ * @Last Modified time: 2019-08-08 11:17:03
  */
 // 首页
 <template>
   <view>
     <view class="search">
-      <icon class="iconfont iconfangdajing searchIcon"></icon>
-      <input type="text" placeholder="搜索" />
-      <icon class="iconfont iconsaoma saoma"></icon>
+      <icon class="iconfont iconfangdajing searchIcon" @tap="goSearchPage"></icon>
+      <input type="text" placeholder="搜索" @tap="goSearchPage" />
+      <!-- <input type="text" placeholder="搜索" @input="getSearchKey" /> -->
+      <icon class="iconfont iconsaoma saoma" @tap="saoma"></icon>
     </view>
     <view class="head">
       <ul class="item">
@@ -43,38 +44,12 @@
       </ul>
     </view>
     <view class="functionList">
-      <view @tap="goPage" data-type="commodity">
-        <image src="/assets/images/commodity_icon.png"></image>
-        <text>商品</text>
-      </view>
-      <view @tap="goPage" data-type="storage">
-        <image src="/assets/images/storage_icon.png"></image>
-        <text>入库</text>
-      </view>
-      <view @tap="goPage" data-type="salesOrder">
-        <image src="/assets/images/salesOrder_icon.png"></image>
-        <text>销售单</text>
-      </view>
-      <view @tap="goPage" data-type="return">
-        <image src="/assets/images/return_icon.png"></image>
-        <text>退货</text>
-      </view>
-      <view @tap="goPage" data-type="inventoryInquiry">
-        <image src="/assets/images/inventoryInquiry_icon.png"></image>
-        <text>库存查询</text>
-      </view>
-      <view @tap="goPage" data-type="reconciliation">
-        <image src="/assets/images/reconciliation_icon.png"></image>
-        <text>客户对账</text>
-      </view>
-      <view @tap="goPage" data-type="receipt">
-        <image src="/assets/images/receipt_icon.png"></image>
-        <text>收款单</text>
-      </view>
-      <view @tap="goPage" data-type="adjustment">
-        <image src="/assets/images/adjustment_icon.png"></image>
-        <text>库存调整单</text>
-      </view>
+      <repeat for="{{navList}}" item="item">
+        <view @tap="goPage" data-type="{{item.type}}">
+          <image src="/assets/images/{{item.img}}.png"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </repeat>
     </view>
   </view>
 </template>
@@ -89,11 +64,57 @@
 
     mixins = []
 
-    data = {}
+    data = {
+      navList: [
+        {'name': '商品', 'type': 'commodity', 'img': 'commodity_icon'},
+        {'name': '入库', 'type': 'storage', 'img': 'storage_icon'},
+        {'name': '销售单', 'type': 'salesOrder', 'img': 'salesOrder_icon'},
+        {'name': '退货', 'type': 'return', 'img': 'return_icon'},
+        {'name': '库存查询', 'type': 'inventoryInquiry', 'img': 'inventoryInquiry_icon'},
+        {'name': '客户对账', 'type': 'reconciliation', 'img': 'reconciliation_icon'},
+        {'name': '收款单', 'type': 'receipt', 'img': 'receipt_icon'},
+        {'name': '库存调整单', 'type': 'adjustment', 'img': 'adjustment_icon'}
+      ]
+    }
 
     computed = {}
 
     methods = {
+      // 扫码
+      saoma() {
+        wx.scanCode({
+          onlyFromCamera:true,
+          success: res => {
+            console.log(res)
+            // var path = res.path
+            // //微信开发者工具 在开发者工具里出现乱码需要decodeURIComponent转义,真机不需要,可以直接使用
+            // console.log("res.path",res.path); //pages/me/me?scene=table_id%3D8%26shop_id%3D1
+            // path= path.split('?');   //分割字符串 path[0]等于pages/me/me,path[1]等于scene=table_id%3D8%26shop_id%3D1
+            // var scene = path[1];                 
+            // var reg  = new RegExp("scene=","g");   
+            // var scene = path.replace(reg,"");
+            // //手机和开放者工具不一样的地方就在这几步了
+            // var scene = decodeURIComponent(scene);   //在手机上省略这一步  开发者工具需要
+            // scene = scene.split("&");
+            // var list = {};
+            // for(var i = 0; i<scene.length; i++){
+            //     var b = scene[i].split("=");
+            //     list[b[0]] = b[1];
+            // }
+            // console.log(list);
+          }
+        })
+      },
+      // 进入搜索页
+      goSearchPage() {
+        this.$navigate(`/pages/search`)
+      },
+      // 搜索内容输入监听
+      // getSearchKey(e) {
+      //   let key = e.detail.value
+      //   console.log(key)
+      // },
+      // 页面跳转
       goPage(e) {
         let pageType = e.currentTarget.dataset.type
         let url = ''

@@ -1,18 +1,18 @@
 /*
  * @Author: luow 
  * @Date: 2019-08-08 10:16:29 
- * @Last Modified by:   luow 
- * @Last Modified time: 2019-08-08 10:16:29 
+ * @Last Modified by: luow
+ * @Last Modified time: 2019-08-08 11:18:35
  */
 // 搜索
 <template>
   <view>
     <view class="search">
-      <input type="text" placeholder="搜索" />
+      <input type="text" placeholder="搜索" @input="getSearchKey" />
       <icon class="iconfont iconfangdajing"></icon>
     </view>
     <view class="searchDescription">
-      <view class="title">搜索内容包括错有：</view>
+      <view class="title">搜索内容包括所有：</view>
       <view class="description">
         <repeat for="{{descriptionData}}" item="item">
           <view class="item">{{item}}</view>
@@ -38,7 +38,13 @@
 
     computed = {}
 
-    methods = {}
+    methods = {
+      // 搜索内容输入监听
+      getSearchKey(e) {
+        let key = e.detail.value
+        console.log(key)
+      },
+    }
 
     events = {}
 
