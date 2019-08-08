@@ -1,3 +1,9 @@
+/*
+ * @Author: luow 
+ * @Date: 2019-08-08 10:16:12 
+ * @Last Modified by:   luow 
+ * @Last Modified time: 2019-08-08 10:16:12 
+ */
 // 收款单
 <template>
   <view>

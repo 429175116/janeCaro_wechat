@@ -1,3 +1,10 @@
+/*
+ * @Author: luow 
+ * @Date: 2019-08-08 10:15:20 
+ * @Last Modified by:   luow 
+ * @Last Modified time: 2019-08-08 10:15:20 
+ */
+//  商品查询
 <template>
   <view>
     <view class="titleBg">

@@ -1,4 +1,10 @@
-// 搜索
+/*
+ * @Author: luow 
+ * @Date: 2019-08-08 10:14:22 
+ * @Last Modified by:   luow 
+ * @Last Modified time: 2019-08-08 10:14:22 
+ */
+// 明细账本
 <template>
   <view>
     <view class="commodityTitle">

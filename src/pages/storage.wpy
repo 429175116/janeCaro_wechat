@@ -1,3 +1,9 @@
+/*
+ * @Author: luow 
+ * @Date: 2019-08-08 10:16:37 
+ * @Last Modified by:   luow 
+ * @Last Modified time: 2019-08-08 10:16:37 
+ */
 // 入库单
 <template>
   <view>

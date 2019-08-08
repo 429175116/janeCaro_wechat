@@ -1,3 +1,10 @@
+/*
+ * @Author: luow 
+ * @Date: 2019-08-08 10:13:34 
+ * @Last Modified by: luow
+ * @Last Modified time: 2019-08-08 10:13:58
+ */
+// 商品添加
 <template>
   <view>
     <view class="titleBg">
