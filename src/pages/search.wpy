@@ -2,7 +2,7 @@
  * @Author: luow 
  * @Date: 2019-08-08 10:16:29 
  * @Last Modified by: luow
- * @Last Modified time: 2019-08-08 11:18:35
+ * @Last Modified time: 2019-08-08 11:20:05
  */
 // 搜索
 <template>
@@ -43,13 +43,13 @@
       getSearchKey(e) {
         let key = e.detail.value
         console.log(key)
-      },
+      }
     }
 
     events = {}
 
     onLoad() {
-      
+
     }
   }
 </script>

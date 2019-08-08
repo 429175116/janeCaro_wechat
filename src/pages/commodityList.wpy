@@ -1,15 +1,15 @@
 /*
  * @Author: luow 
  * @Date: 2019-08-08 10:14:53 
- * @Last Modified by:   luow 
- * @Last Modified time: 2019-08-08 10:14:53 
+ * @Last Modified by: luow
+ * @Last Modified time: 2019-08-08 11:48:10
  */
 // 商品档案
 <template>
   <view>
     <view class="search">
       <icon class="iconfont iconfangdajing searchIconLeft"></icon>
-      <input type="text" placeholder="输入编号, 名称或助记符查询" />
+      <input type="text" placeholder="输入编号, 名称或助记符查询" @input="getSearchKey" />
       <icon class="iconfont iconloudou searchIcon" @tap="goInquireCommodity"></icon>
       <icon class="iconfont iconshu searchIcon"></icon>
       <icon class="iconfont iconupdate searchIconRight" @tap="sortShow"></icon>
@@ -22,13 +22,12 @@
           添加商品
         </view>
       </view>
-      
     </view>
     <view class="listContainer">
       <view class="listCon">
-        <repeat for="{{commodityList}}" item="item">
+        <repeat for="{{commodityList}}" item="item" index="index">
           <view class="item" data-id="{{item.id}}">
-            <icon class="iconfont {{item.sel == 1 ? 'iconxuanzhong':'iconkuang'}}"></icon>
+            <icon data-index="{{index}}" @tap="selected" class="iconfont {{item.sel == 1 ? 'iconxuanzhong':'iconkuang'}}"></icon>
             <image src="/assets/images/3.jpg"></image>
             【狗子007】{{item.name}}
           </view>
@@ -41,9 +40,8 @@
       </ul>
     </view>
     <view class="operating">
-      <view>
-        <icon class="iconfont iconkuang"></icon>
-        <!-- <icon class="iconfont {{item.sel == 1 ? 'iconxuanzhong':'iconkuang'}}"></icon> -->
+      <view @tap="allSelected">
+        <icon class="iconfont {{allSelected ? 'iconxuanzhong':'iconkuang'}}"></icon>
         全选
       </view>
       <icon class="iconfont iconshanchu"></icon>
@@ -95,12 +93,45 @@
         {'id': '1', 'name': '产地'},
         {'id': '1', 'name': '重量'}
       ],
-      sortShowStr: false
+      sortShowStr: false,
+      allSelected: false
     }
 
     computed = {}
 
     methods = {
+      selected(e) {
+        let index = e.currentTarget.dataset.index
+        if (this.commodityList[index].sel) {
+          this.commodityList[index].sel = 0
+        } else {
+          this.commodityList[index].sel = 1
+        }
+        this.$apply()
+      },
+      // 全选点击事件
+      allSelected() {
+        let sel = 0
+        if (this.allSelected) {
+          this.allSelected = false
+        } else {
+          this.allSelected = true
+          sel = 1
+        }
+        let commodityList = this.commodityList
+        let i = 0
+        for (i in commodityList) {
+          commodityList[i]['sel'] = sel
+        }
+        console.log(commodityList)
+        this.commodityList = commodityList
+        this.$apply()
+      },
+      // 搜索内容输入监听
+      getSearchKey(e) {
+        let key = e.detail.value
+        console.log(key)
+      },
       sortShow() {
         if (this.sortShowStr) {
           this.sortShowStr = false
@@ -248,9 +279,6 @@ page{
       align-items: center;
       justify-content: center;
     }
-    .iconxuanzhong{
-      color: #0067fe;
-    }
   }
   ul{
     width: 25rpx;
@@ -307,5 +335,8 @@ page{
     height: 90rpx;
     border-bottom: 1rpx solid #f2f2f2;
   }
+}
+.iconxuanzhong{
+  color: #0067fe !important;
 }
 </style>
