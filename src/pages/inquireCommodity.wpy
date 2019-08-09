@@ -2,7 +2,7 @@
  * @Author: luow 
  * @Date: 2019-08-08 10:15:20 
  * @Last Modified by: luow
- * @Last Modified time: 2019-08-09 16:11:09
+ * @Last Modified time: 2019-08-09 17:07:27
  */
 //  商品查询
 <template>
@@ -14,46 +14,46 @@
       <view class="item">
         <label>编号</label>
         <view>
-          <input type="text" placeholder="请填写货号" @input="getNumbering">
+          <input type="text" value="{{dataNode.numbering}}" placeholder="请填写货号" @input="getNumbering">
         </view>
       </view>
       <view class="item">
         <label>名称</label>
         <view>
-          <input type="text" placeholder="请填写货号" @input="getName">
+          <input type="text" value="{{dataNode.name}}" placeholder="请填写货号" @input="getName">
         </view>
       </view>
       <view class="item">
         <label>条码</label>
         <view>
-          <input type="text" placeholder="请填写货号" @input="getCode">
+          <input type="text" value="{{dataNode.barCode}}" placeholder="请填写货号" @input="getCode">
         </view>
       </view>
       <view class="item">
         <label>备注</label>
         <view>
-          <input type="text" placeholder="请填写备注" @input="getRemarks">
+          <input type="text" value="{{dataNode.remarks}}" placeholder="请填写备注" @input="getRemarks">
         </view>
       </view>
       <view class="item">
         <label>创建时间</label>
         <view class="time">
-          <input type="text" placeholder="开始时间" @input="getStartTime">
+          <input type="text" value="{{dataNode.startTime}}" placeholder="开始时间" @input="getStartTime">
           -
-          <input type="text" placeholder="结束时间" @input="getEndTime">
+          <input type="text" value="{{dataNode.endTime}}" placeholder="结束时间" @input="getEndTime">
         </view>
       </view>
       <view class="item">
         <label>商品状态</label>
         <view class="time">
-          <view data-str="1" @tap="modifyStatus">启用</view>
-          <view data-str="0" @tap="modifyStatus">停用</view>
+          <view class="{{dataNode.switch == '1'?'active':''}}" data-str="1" @tap="selSwitch">启用</view>
+          <view class="{{dataNode.switch == '0'?'active':''}}" data-str="0" @tap="selSwitch">停用</view>
         </view>
       </view>
     </view>
     <view class="titleBg">
-      <view class="active" data-type="1" @tap="conditionListSel">属性</view>
-      <view class="" data-type="0" @tap="conditionListSel">分类</view>
+      <view class="{{listSel== '1'?'active':''}}" data-type="1" @tap="conditionListSel">属性</view>
+      <view class="{{listSel== '0'?'active':''}}" data-type="0" @tap="conditionListSel">分类</view>
     </view>
     <view class="typeList">
       <!-- <repeat for="{{cityNode}}" item="item">
@@ -102,9 +102,12 @@
     mixins = []
 
     data = {
-      userInfo: null,
+      userInfo: this.$parent.globalData.userInfo,
+      requestImgUrl: this.$parent.globalData.requestImgUrl,
       cityNode: [],
-      searchList: []
+      searchList: [],
+      listSel: '1',
+      dataNode: {}
     }
 
     computed = {
@@ -113,25 +116,60 @@
 
     methods = {
       // 编号
-      getNumbering() {},
+      getNumbering(e) {
+        this.dataNode['numbering'] = e.detail.value
+        console.log(this.dataNode)
+      },
       // 名称
-      getName() {},
+      getName(e) {
+        this.dataNode['name'] = e.detail.value
+        console.log(this.dataNode)
+      },
       // 条码
-      getCode() {},
+      getCode(e) {
+        this.dataNode['barCode'] = e.detail.value
+        console.log(this.dataNode)
+      },
       // 备注
-      getRemarks() {},
+      getRemarks(e) {
+        this.dataNode['remarks'] = e.detail.value
+        console.log(this.dataNode)
+      },
       // 开始时间
-      getStartTime() {},
+      getStartTime(e) {
+        this.dataNode['startTime'] = e.detail.value
+        console.log(this.dataNode)
+      },
       // 结束时间
-      getEndTime() {},
+      getEndTime(e) {
+        this.dataNode['endTime'] = e.detail.value
+        console.log(this.dataNode)
+      },
       // 商品状态
-      modifyStatus() {},
+      selSwitch(e) {
+        this.dataNode['switch'] = e.currentTarget.dataset.str
+        console.log(this.dataNode)
+      },
       // 条件列表切换
-      conditionListSel() {},
+      conditionListSel(e) {
+        let listSel = e.currentTarget.dataset.type
+        if (listSel === this.listSel) {
+          return false
+        } else {
+          // 执行数据切换
+          this.listSel = listSel
+        }
+      },
       // 重置
-      reset() {},
+      reset(e) {
+        // 数据初始化
+        console.log(this.dataNode)
+        this.dataNode = {}
+      },
       // 完成
-      sub() {},
+      sub(e) {
+        console.log(this.dataNode)
+      },
       cityClick(e) {
         // 点击城市
         let cityNode = {'name': e.currentTarget.dataset.cityname, 'id': e.currentTarget.dataset.id}
@@ -216,9 +254,9 @@
         align-items: center;
         justify-content: flex-start;
       }
-      input{
+      // input{
 
-      }
+      // }
       .time{
         input{
           width: 130rpx;
@@ -237,7 +275,7 @@
           justify-content: center;
           margin-right: 40rpx;
         }
-        view:nth-child(1){
+        .active{
           color: #fff;
           background-color: #0067fe;
         }
