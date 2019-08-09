@@ -22,13 +22,15 @@
         </view>
         <icon class="iconfont iconjiantouYou"></icon>
       </view>
-      <view class="item">
-        <view>
-          <label>业务日期</label>
-          <input type="text" placeholder="业务日期" value="2019-08-02" disabled="disabled" />
+      <picker mode="date" value="{{dataNode.time}}" bindchange="changeTime"> 
+        <view class="item">
+          <view>
+            <label>业务日期</label>
+            <input type="text" placeholder="业务日期" value="{{dataNode.time}}" disabled="disabled" />
+          </view>
+          <icon class="iconfont iconjiantouYou"></icon>
         </view>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
+      </picker>
       <view class="item">
         <view>
           <label>经手人</label>
@@ -152,6 +154,7 @@
         {'id': '1', 'name': '已红冲'},
         {'id': '1', 'name': '已冲单'}
       ],
+      dataNode: {}
     }
 
     computed = {}
@@ -164,6 +167,10 @@
         } else {
           this.selTypeShow = true
         }
+      },
+      // 获取时间
+      changeTime(e) {
+        this.dataNode['time'] = e.detail.value
       }
     }
 

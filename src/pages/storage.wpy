@@ -180,8 +180,8 @@
           this.selTypeShow = true
         }
       },
+      // 获取时间
       changeTime(e) {
-        // 获取时间
         this.dataNode['time'] = e.detail.value
       }
     }
