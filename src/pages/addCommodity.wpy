@@ -17,8 +17,8 @@
           <input type="text" value="" placeholder="请填写货号" />
         </view>
         <view class="automatic">
-          <!-- <icon class="iconfont iconshanchu"></icon> -->
-          <icon class="iconfont iconshanchu active"></icon>
+          <!-- <icon class="iconfont iconkuang"></icon> -->
+          <icon class="iconfont iconxuanzhong active"></icon>
           <text>自动编号</text>
         </view>
       </view>
@@ -33,35 +33,36 @@
           <label>条码</label>
           <input type="text" value="" placeholder="可扫码也可录入" />
         </view>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconsaoma"></icon>
       </view>
       <view class="item">
         <view class="con">
           <label>基本单位</label>
           <input type="text" value="kg" placeholder="请填写商品名称" />
         </view>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item" @tap="goColorSel">
         <label class="labelColor">颜色</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouYou"></icon>
       </view>
       <view class="item">
         <label class="labelColor">尺码</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouYou"></icon>
       </view>
       <view class="item">
         <label class="labelColor">材质</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouYou"></icon>
       </view>
       <view class="item">
         <label class="labelColor">长度</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouYou"></icon>
       </view>
       <view class="title">添加商品图片</view>
       <view class="imgList">
         <view class="addImg">
-          <icon class="iconfont iconshanchu"></icon>
+          <!-- + -->
+          <icon class="iconfont iconjiahao"></icon>
         </view>
       </view>
     </view>
@@ -69,7 +70,7 @@
       <view class="borderDom"></view>
       <view class="boundaryLineInfo">
         更多可选信息
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="borderDom"></view>
     </view>
@@ -80,30 +81,31 @@
           <input type="text" value="" placeholder="默认为商品名称的首字母" />
         </view>
         <view class="automatic">
-          <!-- <icon class="iconfont iconshanchu"></icon> -->
-          <icon class="iconfont iconshanchu active"></icon>
+          <!-- <icon class="iconfont iconkuang"></icon> -->
+          <icon class="iconfont iconxuanzhong active"></icon>
           <text>自动编号</text>
         </view>
       </view>
       <view class="item">
         <label>上市日期</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>商品状态</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <!-- <icon class="iconfont iconkaiguanguan"></icon> -->
+          <icon class="iconfont iconkaiguanguan1 active"></icon>
       </view>
       <view class="item">
         <label>条码方案</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>所属分类</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>供应商</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <view class="con">
@@ -113,14 +115,14 @@
       </view>
       <view class="item">
         <label>商品分享页服务说明</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <view class="con">
           <label>商城描述图片</label>
           <input type="text" value="" placeholder="完善微信商城商品描述图片" />
         </view>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
     </view>
     <view class="basicList">
@@ -130,51 +132,51 @@
       </view>
       <view class="item">
         <label>品牌</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>材质</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>季节</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>产地</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>携带方式</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>功能</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>重量</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>案例</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>颜色</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>年份</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>条码</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="item">
         <label>件数</label>
-        <icon class="iconfont iconshanchu"></icon>
+        <icon class="iconfont iconjiantouXia"></icon>
       </view>
       <view class="addAttr">添加属性</view>
     </view>
@@ -184,9 +186,9 @@
         <view class="name">
           <view>仓库</view>
           <view>
-            <icon class="iconfont iconshanchu"></icon>
+            <icon class="iconfont iconhuabanfuben"></icon>
             仓库
-            <icon class="iconfont iconshanchu"></icon>
+            <icon class="iconfont iconjiahao1"></icon>
           </view>
           <view>成本价</view>
           <view>成本金额</view>

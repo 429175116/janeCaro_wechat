@@ -13,38 +13,38 @@
     <view class="list">
       <view class="item">
         <label>表头信息</label>
-        <icon class="iconfont iconloudou"></icon>
+        <icon class="iconfont iconshezhi"></icon>
       </view>
       <view class="item">
         <view>
           <label>客户</label>
           <input type="text" placeholder="点击选择客户" disabled="disabled" />
         </view>
-        <icon class="iconfont iconloudou"></icon>
+        <icon class="iconfont iconjiantouYou"></icon>
       </view>
       <view class="item" @tap="goReconciliationDetails">
         <view>
           <label>此前应收</label>
           <text>￥2</text>
         </view>
-        <icon class="iconfont iconloudou"></icon>
+        <icon class="iconfont iconjiantouYou"></icon>
       </view>
       <view class="item">
         <view>
           <label>备注</label>
           <input type="text" placeholder="不可填" disabled="disabled" />
         </view>
-        <icon class="iconfont iconloudou"></icon>
+        <!-- <icon class="iconfont iconjiantouYou"></icon> -->
       </view>
     </view>
     <view class="list">
       <view class="item">
         <label>商品信息</label>
         <view>
-          <icon class="iconfont iconloudou iconList"></icon>
-          <icon class="iconfont iconloudou iconList"></icon>
-          <icon class="iconfont iconloudou iconList"></icon>
-          <icon class="iconfont iconloudou iconList"></icon>
+          <icon class="iconfont iconrefresh iconList"></icon>
+          <icon class="iconfont iconsaoma iconList"></icon>
+          <icon class="iconfont iconshare iconList"></icon>
+          <icon class="iconfont iconjiahao iconList"></icon>
         </view>
       </view>
       <view class="addList">
@@ -93,20 +93,20 @@
     <view class="list">
       <view class="item">
         <label>费用信息</label>
-        <icon class="iconfont iconloudou"></icon>
+        <icon class="iconfont iconjiahao"></icon>
       </view>
       <view class="prompt">添加费用</view>
     </view>
     <view class="list">
       <view class="item">
         <label>费用信息</label>
-        <icon class="iconfont iconloudou"></icon>
+        <icon class="iconfont iconjiahao"></icon>
       </view>
       <view class="item">
         <label>费用  我方自付/工商银行/房租</label>
         <view>
           <text class="price">+1</text>
-          <icon class="iconfont iconloudou"></icon>
+          <icon class="iconfont iconjiahao"></icon>
         </view>
       </view>
     </view>
@@ -116,7 +116,7 @@
           <label>收款信息</label>
           <text>(待结算<text class="price">￥0</text>)</text>
         </view>
-        <icon class="iconfont iconloudou"></icon>
+        <icon class="iconfont iconjiahao"></icon>
       </view>
       <view class="item">
         <label>收款  现金</label>·
@@ -125,14 +125,14 @@
     </view>
     <view class="list bottomList">
       <view class="item">
-        <label>费用信息</label>
-        <icon class="iconfont iconloudou"></icon>
+        <label>附件信息</label>
+        <icon class="iconfont iconshanchu"></icon>
       </view>
       <view class="addList">
         <view>
           <icon class="iconfont iconshanchu"></icon>
-          <text>添加商品</text>
-          <text>添加商品</text>
+          <text>点击上传照片、视频等</text>
+          <!-- <text>添加商品</text> -->
         </view>
       </view>
     </view>

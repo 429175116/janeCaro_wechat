@@ -78,11 +78,11 @@
         <view class="selList">
           <view class="selItem">
             <text>供应商</text>
-            <icon class="iconfont iconsaoma"></icon>
+            <icon class="iconfont iconjiantouXia"></icon>
           </view>
           <view class="selItem">
             <text>商品分类</text>
-            <icon class="iconfont iconsaoma"></icon>
+            <icon class="iconfont iconjiantouXia"></icon>
           </view>
         </view>
       </view>
@@ -93,11 +93,11 @@
             <label>进价</label>
             <view class="original">
               <text>进价</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <view class="increase">
               <text>加</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <input type="text" placeholder="输入金额" value="" />
           </view>
@@ -105,11 +105,11 @@
             <label>零售价</label>
             <view class="original">
               <text>进价</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <view class="increase">
               <text>加</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <input type="text" placeholder="输入金额" value="" />
           </view>
@@ -117,11 +117,11 @@
             <label>批发价</label>
             <view class="original">
               <text>进价</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <view class="increase">
               <text>加</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <input type="text" placeholder="输入金额" value="" />
           </view>
@@ -129,11 +129,11 @@
             <label>预售价</label>
             <view class="original">
               <text>进价</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <view class="increase">
               <text>加</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <input type="text" placeholder="输入金额" value="" />
           </view>
@@ -141,11 +141,11 @@
             <label>李四价</label>
             <view class="original">
               <text>进价</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <view class="increase">
               <text>加</text>
-              <icon class="iconfont iconsaoma"></icon>
+              <icon class="iconfont iconjiantouXia"></icon>
             </view>
             <input type="text" placeholder="输入金额" value="" />
           </view>
@@ -156,27 +156,27 @@
         <view class="selList">
           <view class="selItem">
             <text>品牌</text>
-            <icon class="iconfont iconsaoma"></icon>
+            <icon class="iconfont iconjiantouXia"></icon>
           </view>
           <view class="selItem">
             <text>材质</text>
-            <icon class="iconfont iconsaoma"></icon>
+            <icon class="iconfont iconjiantouXia"></icon>
           </view>
           <view class="selItem">
             <text>季节</text>
-            <icon class="iconfont iconsaoma"></icon>
+            <icon class="iconfont iconjiantouXia"></icon>
           </view>
           <view class="selItem">
             <text>产地</text>
-            <icon class="iconfont iconsaoma"></icon>
+            <icon class="iconfont iconjiantouXia"></icon>
           </view>
           <view class="selItem">
             <text>重量</text>
-            <icon class="iconfont iconsaoma"></icon>
+            <icon class="iconfont iconjiantouXia"></icon>
           </view>
           <view class="selItem">
             <text>年份</text>
-            <icon class="iconfont iconsaoma"></icon>
+            <icon class="iconfont iconjiantouXia"></icon>
           </view>
         </view>
       </view>
