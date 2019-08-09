@@ -166,7 +166,6 @@
 
     methods = {
       selType() {
-        console.log(11)
         if (this.selTypeShow) {
           this.selTypeShow = false
         } else {
