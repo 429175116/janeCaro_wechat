@@ -17,8 +17,8 @@
     
     <view class="list">
       <repeat for="{{list}}" item="item">
-        <view class="item" data-id="{{item.id}}" @tap="goReconciliationDetails">
-          <view class="listItem">
+        <view class="item" data-id="{{item.id}}">
+          <view class="listItem" @tap="goReconciliationDetails">
             <view class="userInfo">
               <image src="{{item.img}}"></image>
               <text>{{item.name}}</text>
@@ -34,7 +34,7 @@
               </view>
             </view>
           </view>
-          <view class="listItem">
+          <view class="listItem" @tap="goReconciliationDetails">
             <view class="dataDom">
               <view>
                 本期已收：{{item.income_1}}
@@ -53,7 +53,7 @@
             </view>
           </view>
           <view class="listItem">
-            <view class="userInfo">
+            <view class="userInfo" data-phone="{{item.phone}}" @tap="call">
               <icon class="iconfont icondianhua"></icon>
               {{item.phone}}
             </view>
@@ -164,6 +164,11 @@
       // 进入客户对账详情
       goReconciliationDetails() {
         this.$navigate(`/pages/reconciliationDetails`)
+      },
+      call(e) {
+        wx.makePhoneCall({
+          phoneNumber: e.currentTarget.dataset.phone,
+        })
       }
     }
 
