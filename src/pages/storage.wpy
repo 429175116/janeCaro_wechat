@@ -12,7 +12,10 @@
     </view>
     <view class="list">
       <view class="item">
-        <label>表头信息</label>
+        <view>
+          <label>表头信息</label>
+          <input type="text" placeholder="表头信息" value="" disabled="disabled" />
+        </view>
         <icon class="iconfont iconshezhi"></icon>
       </view>
       <view class="item">
@@ -22,12 +25,15 @@
         </view>
         <icon class="iconfont iconjiantouYou"></icon>
       </view>
-      <view class="item">
-        <view>
-          <label>供应商</label>
+      <picker bindchange='selSupplier' range="{{allSupplier}}">
+        <view class="item">
+          <view class="con">
+            <label>供应商</label>
+            <input type="text" value="{{dataNode.supplier}}" disabled="disabled" placeholder="请选择供应商" />
+          </view>
+          <icon class="iconfont iconjiantouXia"></icon>
         </view>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
+      </picker>
       <picker mode="date" value="{{dataNode.time}}" bindchange="changeTime"> 
         <view class="item">
           <view>
@@ -37,26 +43,34 @@
           <icon class="iconfont iconjiantouYou"></icon>
         </view>
       </picker>
-      <view class="item">
-        <view>
-          <label>经手人</label>
-          <input type="text" placeholder="经手人" value="管理员" disabled="disabled" />
+      <picker bindchange='selHandMan' range="{{allHandMan}}">
+        <view class="item">
+          <view>
+            <label>经手人</label>
+            <input type="text" placeholder="经手人" value="{{dataNode.handMan}}" disabled="disabled" />
+          </view>
+          <icon class="iconfont iconjiantouYou"></icon>
         </view>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
-      <view class="item">
-        <view>
-          <label>仓库</label>
-          <input type="text" placeholder="仓库" value="总仓库" disabled="disabled" />
+      </picker>
+      <picker bindchange='selWarehouse' range="{{allWarehouse}}">
+        <view class="item">
+          <view>
+            <label>仓库</label>
+            <input type="text" placeholder="仓库" value="{{dataNode.warehouse}}" disabled="disabled" />
+          </view>
+          <icon class="iconfont iconjiantouYou"></icon>
         </view>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
-      <view class="item">
-        <view>
-          <label>收入类型</label>
+      </picker>
+      <!-- incomeType -->
+      <picker bindchange='selIncomeType' range="{{allIncomeType}}">
+        <view class="item">
+          <view>
+            <label>收入类型</label>
+            <input type="text" placeholder="收入类型" value="{{dataNode.incomeType}}" disabled="disabled" />
+          </view>
+          <icon class="iconfont iconjiantouYou"></icon>
         </view>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
+      </picker>
       <view class="item">
         <view>
           <label>备注</label>
@@ -67,23 +81,27 @@
     </view>
     <view class="list">
       <view class="item">
-        <label>客户</label>
+        <label>商品信息</label>
         <view>
-          <icon class="iconfont iconrefresh iconList"></icon>
-          <icon class="iconfont iconsaoma iconList"></icon>
-          <icon class="iconfont iconshare iconList"></icon>
-          <icon class="iconfont iconjiahao iconList"></icon>
+          <!-- 重置 -->
+          <icon class="iconfont iconrefresh iconList" @tap="reset"></icon>
+          <!-- 扫码 -->
+          <icon class="iconfont iconsaoma iconList" @tap="scanCode"></icon>
+          <!-- 分享 -->
+          <icon class="iconfont iconshare iconList" @tap="share"></icon>
+          <!-- 添加 -->
+          <icon class="iconfont iconjiahao iconList" @tap="addCommodity"></icon>
         </view>
       </view>
       <view class="addList">
-        <view>
+        <view @tap="addCommodity">
           <icon class="iconfont iconshanchu"></icon>
           <text>添加商品</text>
         </view>
       </view>
       <view class="head">
         <view>全部展开</view>
-        <view>全部清空</view>
+        <view @tap="reset">全部清空</view>
       </view>
     </view>
         <view class="list">
@@ -105,11 +123,11 @@
       </view>
     </view>
     <view class="operating">
-      <view class="item">调申请单</view>
-      <view class="item">分享</view>
-      <view class="item print">打印</view>
-      <view class="item">保存</view>
-      <view class="item">过账</view>
+      <view class="item" @tap="transferList">调申请单</view>
+      <view class="item"  @tap="sharePage">分享</view>
+      <view class="item print" @tap="print">打印</view>
+      <view class="item" @tap="save">保存</view>
+      <view class="item" @tap="posting">过账</view>
     </view>
     <view class="mask" wx:if="{{selTypeShow}}">
       <view class="maskSort">
@@ -166,12 +184,40 @@
         {'id': '1', 'name': '已红冲'},
         {'id': '1', 'name': '已冲单'}
       ],
+      allWarehouse: ['仓库1', '仓库2', '仓库3'], // 仓库
+      allHandMan: ['经手人1', '经手人2', '经手人3'], // 经手人
+      allSupplier: ['供应商1','供应商2','供应商3','供应商4'], // 供应商
+      allIncomeType: ['类型1', '类型2', '类型3'], // 收入类型
       dataNode: {}
     }
 
     computed = {}
 
     methods = {
+      // 收入类型
+      selIncomeType(e) {
+        this.dataNode['incomeType'] = this.allIncomeType[e.detail.value]
+        console.log(e)
+      },
+      // 仓库
+      selWarehouse(e) {
+        this.dataNode['warehouse'] = this.allSupplier[e.detail.value]
+        console.log(e)
+      },
+      // 经手人
+      selHandMan(e) {
+        this.dataNode['handMan'] = this.allHandMan[e.detail.value]
+        console.log(e)
+      },
+      // 供应商
+      selSupplier(e) {
+        this.dataNode['supplier'] = this.allSupplier[e.detail.value]
+        console.log(e)
+      },
+      // 获取时间
+      changeTime(e) {
+        this.dataNode['time'] = e.detail.value
+      },
       selType() {
         console.log(11)
         if (this.selTypeShow) {
@@ -180,10 +226,7 @@
           this.selTypeShow = true
         }
       },
-      // 获取时间
-      changeTime(e) {
-        this.dataNode['time'] = e.detail.value
-      }
+      
     }
 
     events = {}
