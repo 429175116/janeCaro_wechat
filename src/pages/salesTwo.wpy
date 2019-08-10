@@ -58,7 +58,7 @@
       <view class="button">完成</view>
     </view>
     <!-- <view class="mask" wx:if="{{sortShowStr}}"> -->
-    <view class="mask">
+    <view class="mask" wx:if="{{orderShow}}">
       <view class="conOrder">
         <view class="commodity">
           <image src="https://www2.flightclub.cn/news/uploads/allimg/190808/12-1ZPQ04627.jpg"></image>
@@ -84,39 +84,19 @@
         </view>
         <view class="title">尺码</view>
         <view class="sizeList">
-          <view class="item">
-            <view>
-              <view class="name">xL</view>
-              <view>asdfasdf</view>
+          <repeat for="{{sizeList}}" item="item">
+            <view class="item">
+              <view>
+                <view class="name">{{item.name}}</view>
+                <view>{{item.description}}</view>
+              </view>
+              <view class="num">
+                <view class="down">-</view>
+                <input type="text" value="{{item.num}}" />
+                <view class="up">+</view>
+              </view>
             </view>
-            <view class="num">
-              <view class="down">-</view>
-              <input type="text" value="11" />
-              <view class="up">+</view>
-            </view>
-          </view>
-          <view class="item">
-            <view>
-              <view class="name">xL</view>
-              <view>asdfasdf</view>
-            </view>
-            <view class="num">
-              <view class="down">-</view>
-              <input type="text" value="11" />
-              <view class="up">+</view>
-            </view>
-          </view>
-          <view class="item">
-            <view>
-              <view class="name">xL</view>
-              <view>asdfasdf</view>
-            </view>
-            <view class="num">
-              <view class="down">-</view>
-              <input type="text" value="11" />
-              <view class="up">+</view>
-            </view>
-          </view>
+          </repeat>
           <view class="allNum item">
             <view class="name">共5件</view>
             <view class="name">
@@ -141,6 +121,7 @@
     mixins = []
 
     data = {
+      orderShow: false,
       letterList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
       commodityList: [
         {'id': '1', 'sel': 0, 'img': '', 'name': '世豪的鞋子'},
@@ -163,6 +144,12 @@
         {'id': '1', 'name': '季节'},
         {'id': '1', 'name': '产地'},
         {'id': '1', 'name': '重量'}
+      ],
+      sizeList: [
+        {'name': 'xxl', 'description': 'asdfasdfasd', 'num': 100},
+        {'name': 'xxl', 'description': 'asdfasdfasd', 'num': 100},
+        {'name': 'xxl', 'description': 'asdfasdfasd', 'num': 100},
+        {'name': 'xxl', 'description': 'asdfasdfasd', 'num': 100},
       ],
       sortShowStr: false
     }
@@ -427,7 +414,7 @@ page{
     height: auto;
     padding: 30rpx;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     view{

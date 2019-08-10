@@ -61,7 +61,6 @@
           <icon class="iconfont iconjiantouYou"></icon>
         </view>
       </picker>
-      <!-- incomeType -->
       <picker bindchange='selIncomeType' range="{{allIncomeType}}">
         <view class="item">
           <view>

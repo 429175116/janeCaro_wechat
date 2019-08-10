@@ -16,102 +16,33 @@
       <icon class="iconfont iconupdate searchIconRight"></icon>
     </view>
     <view class="list">
-      <view class="item">
-        <icon class="iconfont iconkuang"></icon>
-        <view class="con">
-          <view class="conTop">
-            <text>名称名称名称</text>
-            <view class="green">草稿</view>
-            <!-- <view class="green">草稿</view>
-            <view class="blue">已过账</view>
-            <view class="red">已红冲</view>
-            <view class="gray">已结算</view> -->
-          </view>
-          <view class="conIn">
-            <view>
-              ￥<text class="price">100</text>
-              共<text>100</text>件
+      <repeat for="{{listData}}" item="item">
+        <view class="item">
+          <icon wx:if="{{item.str == '0'}}" @tap="selsetList" data-index="{{index}}" data-type="1" class="iconfont iconkuang"></icon>
+          <icon wx:if="{{item.str == '1'}}" @tap="selsetList" data-index="{{index}}" data-type="0" class="iconfont iconxuanzhong active"></icon>
+          <view class="con">
+            <view class="conTop">
+              <text>{{item.name}}</text>
+              <view wx:if="{{item.str == 0}}" class="green">草稿</view>
+              <view wx:if="{{item.str == 1}}" class="green">草稿</view>
+              <view wx:if="{{item.str == 2}}" class="blue">已过账</view>
+              <view wx:if="{{item.str == 3}}" class="red">已红冲</view>
+              <view wx:if="{{item.str == 4}}" class="gray">已结算</view>
             </view>
-            <text>总仓</text>
-          </view>
-          <view class="conBot">
-            <text>名称名称名称</text>
-            <text>时间时间时间</text>
+            <view class="conIn">
+              <view>
+                ￥<text class="price">{{item.price}}</text>
+                共<text>{{item.num}}</text>件
+              </view>
+              <text>{{item.warehouse}}</text>
+            </view>
+            <view class="conBot">
+              <text>{{item.description}}</text>
+              <text>{{item.time}}</text>
+            </view>
           </view>
         </view>
-      </view>
-      <view class="item">
-        <icon class="iconfont iconxuanzhong"></icon>
-        <view class="con">
-          <view class="conTop">
-            <text>名称名称名称</text>
-            <view class="blue">已过账</view>
-            <!-- <view class="green">草稿</view>
-            <view class="blue">已过账</view>
-            <view class="red">已红冲</view>
-            <view class="gray">已结算</view> -->
-          </view>
-          <view class="conIn">
-            <view>
-              ￥<text class="price">100</text>
-              共<text>100</text>件
-            </view>
-            <text>总仓</text>
-          </view>
-          <view class="conBot">
-            <text>名称名称名称</text>
-            <text>时间时间时间</text>
-          </view>
-        </view>
-      </view>
-      <view class="item">
-        <icon class="iconfont iconkuang"></icon>
-        <view class="con">
-          <view class="conTop">
-            <text>名称名称名称</text>
-            <view class="red">已红冲</view>
-            <!-- <view class="green">草稿</view>
-            <view class="blue">已过账</view>
-            <view class="red">已红冲</view>
-            <view class="gray">已结算</view> -->
-          </view>
-          <view class="conIn">
-            <view>
-              ￥<text class="price">100</text>
-              共<text>100</text>件
-            </view>
-            <text>总仓</text>
-          </view>
-          <view class="conBot">
-            <text>名称名称名称</text>
-            <text>时间时间时间</text>
-          </view>
-        </view>
-      </view>
-      <view class="item">
-        <icon class="iconfont iconxuanzhong"></icon>
-        <view class="con">
-          <view class="conTop">
-            <text>名称名称名称</text>
-            <view class="gray">已结算</view>
-            <!-- <view class="green">草稿</view>
-            <view class="blue">已过账</view>
-            <view class="red">已红冲</view>
-            <view class="gray">已结算</view> -->
-          </view>
-          <view class="conIn">
-            <view>
-              ￥<text class="price">100</text>
-              共<text>100</text>件
-            </view>
-            <text>总仓</text>
-          </view>
-          <view class="conBot">
-            <text>名称名称名称</text>
-            <text>时间时间时间</text>
-          </view>
-        </view>
-      </view>
+      </repeat>
     </view>
     <view class="operating">
       <view class="item">
@@ -152,11 +83,67 @@
         {'id': '1', 'name': '已红冲'},
         {'id': '1', 'name': '已冲单'}
       ],
+      listData: [
+        {
+          'id':'1',
+          'name': '名称名称名称名称名称',
+          'price': '100',
+          'num': '100',
+          'time': '2019.08.20',
+          'warehouse': '总仓',
+          'description': '描述描述描述描述描述',
+          'str': '0',
+          'select': '1'
+        },{
+          'id':'1',
+          'name': '名称名称名称名称名称',
+          'price': '100',
+          'num': '100',
+          'time': '2019.08.20',
+          'warehouse': '总仓',
+          'description': '描述描述描述描述描述',
+          'str': '1',
+          'select': '1'
+        },{
+          'id':'1',
+          'name': '名称名称名称名称名称',
+          'price': '100',
+          'num': '100',
+          'time': '2019.08.20',
+          'warehouse': '总仓',
+          'description': '描述描述描述描述描述',
+          'str': '2',
+          'select': '0'
+        },{
+          'id':'1',
+          'name': '名称名称名称名称名称',
+          'price': '100',
+          'num': '100',
+          'time': '2019.08.20',
+          'warehouse': '总仓',
+          'description': '描述描述描述描述描述',
+          'str': '3',
+          'select': '0'
+        },{
+          'id':'1',
+          'name': '名称名称名称名称名称',
+          'price': '100',
+          'num': '100',
+          'time': '2019.08.20',
+          'warehouse': '总仓',
+          'description': '描述描述描述描述描述',
+          'str': '4',
+          'select': '0'
+        }
+      ]
     }
 
     computed = {}
 
     methods = {
+      selsetList() {
+
+      },
       selType() {
         console.log(11)
         if (this.selTypeShow) {
