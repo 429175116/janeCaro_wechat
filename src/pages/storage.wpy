@@ -194,6 +194,24 @@
     computed = {}
 
     methods = {
+      // 调申请单
+      transferList() {},
+      // 分享
+      sharePage() {},
+      // 打印
+      print() {},
+      // 保存
+      save() {},
+      // 过账
+      posting() {},
+      // 重置
+      reset() {},
+      // 扫码
+      scanCode() {},
+      // 分享
+      share() {},
+      // 添加
+      addCommodity() {},
       // 收入类型
       selIncomeType(e) {
         this.dataNode['incomeType'] = this.allIncomeType[e.detail.value]

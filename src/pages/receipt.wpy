@@ -22,13 +22,15 @@
         </view>
         <icon class="iconfont iconjiantouYou"></icon>
       </view>
-      <view class="item">
-        <view>
-          <label>客户</label>
-          <input type="text" placeholder="点击选择客户" disabled="disabled" />
+      <picker bindchange='selClient' range="{{allClient}}">
+        <view class="item">
+          <view>
+            <label>客户</label>
+            <input type="text" placeholder="点击选择客户" value="{{dataNode.client}}" disabled="disabled" />
+          </view>
+          <icon class="iconfont iconjiantouYou"></icon>
         </view>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
+      </picker>
       <picker mode="date" value="{{dataNode.time}}" bindchange="changeTime"> 
         <view class="item">
           <view>
@@ -38,13 +40,15 @@
           <icon class="iconfont iconjiantouYou"></icon>
         </view>
       </picker>
-      <view class="item">
-        <view>
-          <label>经手人</label>
-          <input type="text" placeholder="经手人" value="管理员" disabled="disabled" />
+      <picker bindchange='selHandMan' range="{{allHandMan}}">
+        <view class="item">
+          <view>
+            <label>经手人</label>
+            <input type="text" placeholder="经手人" value="{{dataNode.handMan}}" disabled="disabled" />
+          </view>
+          <icon class="iconfont iconjiantouYou"></icon>
         </view>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
+      </picker>
     </view>
     <view class="list">
       <view class="item">
@@ -90,10 +94,10 @@
     </view>
 
     <view class="operating">
-      <view class="item">分享</view>
-      <view class="item print">打印</view>
-      <view class="item">保存</view>
-      <view class="item">过账</view>
+      <view class="item"  @tap="sharePage">分享</view>
+      <view class="item print" @tap="print">打印</view>
+      <view class="item" @tap="save">保存</view>
+      <view class="item" @tap="posting">过账</view>
     </view>
     <!-- <view class="mask" wx:if="{{selClientShow}}">
       <view class="maskSort">
@@ -159,12 +163,25 @@
         {'id': '1', 'name': '已红冲'},
         {'id': '1', 'name': '已冲单'}
       ],
-      dataNode: {}
+      dataNode: {},
+      allClient: ['客户1', '客户2', '客户3'], // 客户
+      allHandMan: ['经手人1', '经手人2', '经手人3'], // 经手人
     }
 
     computed = {}
 
     methods = {
+      
+      // 客户
+      selClient(e) {
+        this.dataNode['client'] = this.allClient[e.detail.value]
+        console.log(e)
+      },
+      // 经手人
+      selHandMan(e) {
+        this.dataNode['handMan'] = this.allHandMan[e.detail.value]
+        console.log(e)
+      },
       selType() {
         if (this.selTypeShow) {
           this.selTypeShow = false

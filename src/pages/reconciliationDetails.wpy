@@ -10,18 +10,24 @@
     <view class="liet">
       <view class="item">
         <text>显示商品</text>
-        <icon class="iconfont iconkaiguanguan" @tap="showCommodity"></icon>
+        <icon wx:if="{{dataNode.str == '0'}}" @tap="showCommodity" data-type="1" class="iconfont iconkaiguanguan"></icon>
+        <icon wx:if="{{dataNode.str == '1'}}" @tap="showCommodity" data-type="0" class="iconfont iconkaiguanguan1 active"></icon>
       </view>
       <view class="item">
-        <text>按单汇总</text>
-        <icon class="iconfont iconkaiguanguan1 active" @tap="summary"></icon>
+        <text>按单汇总</text>summary
+        <icon wx:if="{{dataNode.summary == '0'}}" @tap="summaryRun" data-type="1" class="iconfont iconkaiguanguan"></icon>
+        <icon wx:if="{{dataNode.summary == '1'}}" @tap="summaryRun" data-type="0" class="iconfont iconkaiguanguan1 active"></icon>
       </view>
       <view class="item time">
         <text>时间范围</text>
         <view class="time">
-          <input type="text" varue="" @input="getStartTime" placeholder="开始时间" />
+          <picker mode="date" value="{{dataNode.startTime}}" bindchange="getStartTime"> 
+            <input type="text" varue="{{dataNode.startTime}}" disabled="disabled" placeholder="开始时间" />
+          </picker>
           -
-          <input type="text" varue="" @input="getEndTime" placeholder="结束时间" />
+          <picker mode="date" value="{{dataNode.endTime}}" bindchange="getEndTime"> 
+            <input type="text" varue="{{dataNode.endTime}}" disabled="disabled" placeholder="结束时间" />
+          </picker>
         </view>
       </view>
       <view class="item">
@@ -61,7 +67,7 @@
         </view>
       </view>
       <view class="item">
-        <view class="operational">
+        <view class="operational" @tap="print">
           <icon class="iconfont icondayin"></icon>
           打印
         </view>
@@ -85,29 +91,35 @@
     mixins = []
 
     data = {
-      
+      dataNode: {
+        'str': 0,
+        'summary': 0
+      },
     }
 
     computed = {}
 
     methods = {
-      
-      showCommodity(e) {
-        let str = e.currentTarget.dataset.str
-      },
-      summary(e) {
-        let str = e.currentTarget.dataset.str
-      },
-      // 获取开始时时间
+      // 打印
+      print() {},
+      // 获取开始时间
       getStartTime(e) {
-        let time = e.detail.value
-        console.log(time)
+        this.dataNode['startTime'] = e.detail.value
       },
       // 获取结束时间
       getEndTime(e) {
-        let time = e.detail.value
-        console.log(time)
-      }
+        this.dataNode['endTime'] = e.detail.value
+      },
+      // 显示商品
+      setStr(e) {
+        this.dataNode['str'] = e.currentTarget.dataset.type
+        console.log(this.dataNode)
+      },
+      // 按单汇总
+      summaryRun(e) {
+        this.dataNode['summary'] = e.currentTarget.dataset.type
+        console.log(this.dataNode)
+      },
     }
 
     events = {}
