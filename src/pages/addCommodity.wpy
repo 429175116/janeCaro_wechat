@@ -8,56 +8,76 @@
 <template>
   <view>
     <view class="titleBg">
-      <view class="carryOut">保存</view>
+      <view class="carryOut" @tap="sub">保存</view>
     </view>
     <view class="basicList">
       <view class="item">
         <view class="con">
           <label>编号</label>
-          <input type="text" value="" placeholder="请填写货号" />
+          <input type="text" value="{{dataNode.numbering}}" placeholder="请填写货号"  @input="getNumbering" />
         </view>
         <view class="automatic">
-          <!-- <icon class="iconfont iconkuang"></icon> -->
-          <icon class="iconfont iconxuanzhong active"></icon>
+          <icon wx:if="{{dataNode.numAutomatic == '0'}}" @tap="getNumAutomatic" data-type="1" class="iconfont iconkuang"></icon>
+          <icon wx:if="{{dataNode.numAutomatic == '1'}}" @tap="getNumAutomatic" data-type="0" class="iconfont iconxuanzhong active"></icon>
           <text>自动编号</text>
         </view>
       </view>
       <view class="item">
         <view class="con">
           <label>名称</label>
-          <input type="text" value="" placeholder="请填写商品名称" />
+          <input type="text" value="{{dataNode.name}}" placeholder="请填写商品名称" @input="getName" />
         </view>
       </view>
       <view class="item">
         <view class="con">
           <label>条码</label>
-          <input type="text" value="" placeholder="可扫码也可录入" />
+          <input type="text" value="{{dataNode.barCode}}" placeholder="可扫码也可录入" @input="getCode" />
         </view>
         <icon class="iconfont iconsaoma"></icon>
       </view>
-      <view class="item">
-        <view class="con">
-          <label>基本单位</label>
-          <input type="text" value="kg" placeholder="请填写商品名称" />
+      <picker bindchange='selUnit' range="{{allUnit}}">
+        <view class="item">
+          <view class="con">
+            <label>基本单位</label>
+            <input type="text" value="{{dataNode.unit}}" disabled="disabled" placeholder="请填写商品名称" />
+          </view>
+          <icon class="iconfont iconjiantouXia"></icon>
         </view>
-        <icon class="iconfont iconjiantouXia"></icon>
-      </view>
+      </picker>
       <view class="item" @tap="goColorSel">
-        <label class="labelColor">颜色</label>
+        <view class="con">
+          <label class="labelColor">颜色</label>
+          <input type="text" value="{{dataNode.numbering}}" disabled="disabled" placeholder="请填写货号"  @input="getNumbering" />
+        </view>
         <icon class="iconfont iconjiantouYou"></icon>
       </view>
-      <view class="item">
-        <label class="labelColor">尺码</label>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
-      <view class="item">
-        <label class="labelColor">材质</label>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
-      <view class="item">
-        <label class="labelColor">长度</label>
-        <icon class="iconfont iconjiantouYou"></icon>
-      </view>
+      <picker bindchange='selSize' range="{{allSize}}">
+        <view class="item">
+          <view class="con">
+            <label class="labelColor">尺码</label>
+            <input type="text" value="{{dataNode.size}}" disabled="disabled" placeholder="请填写商品名称" />
+          </view>
+          <icon class="iconfont iconjiantouYou"></icon>
+        </view>
+      </picker>
+      <picker bindchange='selMaterial' range="{{allMaterial}}">
+        <view class="item">
+          <view class="con">
+            <label class="labelColor">材质</label>
+            <input type="text" value="{{dataNode.material}}" disabled="disabled" placeholder="请填写商品名称" />
+          </view>
+          <icon class="iconfont iconjiantouYou"></icon>
+        </view>
+      </picker>
+      <picker bindchange='selLength' range="{{allLength}}">
+        <view class="item">
+          <view class="con">
+            <label class="labelColor">长度</label>
+            <input type="text" value="{{dataNode.length}}" disabled="disabled" placeholder="请填写商品名称" />
+          </view>
+          <icon class="iconfont iconjiantouYou"></icon>
+        </view>
+      </picker>
       <view class="title">添加商品图片</view>
       <view class="imgList">
         <view class="addImg">
@@ -81,32 +101,54 @@
           <input type="text" value="" placeholder="默认为商品名称的首字母" />
         </view>
         <view class="automatic">
-          <!-- <icon class="iconfont iconkuang"></icon> -->
-          <icon class="iconfont iconxuanzhong active"></icon>
+          <icon wx:if="{{dataNode.numAutomaticZJ == '0'}}" @tap="getNumAutomaticZJ" data-type="1" class="iconfont iconkuang"></icon>
+          <icon wx:if="{{dataNode.numAutomaticZJ == '1'}}" @tap="getNumAutomaticZJ" data-type="0" class="iconfont iconxuanzhong active"></icon>
           <text>自动编号</text>
         </view>
       </view>
-      <view class="item">
-        <label>上市日期</label>
-        <icon class="iconfont iconjiantouXia"></icon>
-      </view>
+      <picker mode="date" value="{{dataNode.time}}" bindchange="changeTime"> 
+        <view class="item">
+          <view class="con">
+            <label>上市日期</label>
+            <input type="text" value="{{dataNode.time}}" disabled="disabled" placeholder="请选择时间" />
+          </view>
+          <icon class="iconfont iconjiantouXia"></icon>
+        </view>
+      </picker>
       <view class="item">
         <label>商品状态</label>
         <!-- <icon class="iconfont iconkaiguanguan"></icon> -->
-          <icon class="iconfont iconkaiguanguan1 active"></icon>
+          <!-- <icon class="iconfont iconkaiguanguan1 active"></icon> -->
+          <icon wx:if="{{dataNode.str == '0'}}" @tap="setStr" data-type="1" class="iconfont iconkaiguanguan"></icon>
+          <icon wx:if="{{dataNode.str == '1'}}" @tap="setStr" data-type="0" class="iconfont iconkaiguanguan1 active"></icon>
       </view>
-      <view class="item">
-        <label>条码方案</label>
-        <icon class="iconfont iconjiantouXia"></icon>
-      </view>
-      <view class="item">
-        <label>所属分类</label>
-        <icon class="iconfont iconjiantouXia"></icon>
-      </view>
-      <view class="item">
-        <label>供应商</label>
-        <icon class="iconfont iconjiantouXia"></icon>
-      </view>
+      <picker bindchange='selBarCodeProgram' range="{{allBarCodeProgram}}">
+        <view class="item">
+          <view class="con">
+            <label>条码方案</label>
+            <input type="text" value="{{dataNode.barCodeProgram}}" disabled="disabled" placeholder="请选择方案" />
+          </view>
+          <icon class="iconfont iconjiantouXia"></icon>
+        </view>
+      </picker>
+      <picker bindchange='selType' range="{{allType}}">
+        <view class="item">
+          <view class="con">
+            <label>所属分类</label>
+            <input type="text" value="{{dataNode.type}}" disabled="disabled" placeholder="请选择分类" />
+          </view>
+          <icon class="iconfont iconjiantouXia"></icon>
+        </view>
+      </picker>
+      <picker bindchange='selSupplier' range="{{allSupplier}}">
+        <view class="item">
+          <view class="con">
+            <label>供应商</label>
+            <input type="text" value="{{dataNode.supplier}}" disabled="disabled" placeholder="请选择供应商" />
+          </view>
+          <icon class="iconfont iconjiantouXia"></icon>
+        </view>
+      </picker>
       <view class="item">
         <view class="con">
           <label>备注</label>
@@ -276,7 +318,19 @@
     data = {
       userInfo: null,
       cityNode: [],
-      searchList: []
+      searchList: [],
+      dataNode: {
+        'str': 0,
+        'numAutomatic': 0,
+        'numAutomaticZJ': 0
+      },
+      allBarCodeProgram: ['方案1', '方案2'], // 条码方案
+      allSupplier: ['供应商1','供应商2','供应商3','供应商4'], // 供应商
+      allType: ['分类1','分类2','分类3','分类4','分类5','分类6'], // 所属分类
+      allUnit: ['kg','个','支','双','件','袋'], // 单位
+      allSize: ['kg','个','支','双','件','袋'], // 尺码
+      allMaterial: ['kg','个','支','双','件','袋'], // 材质
+      allLength: ['kg','个','支','双','件','袋'], // 长度
     }
 
     computed = {
@@ -284,9 +338,77 @@
     }
 
     methods = {
+      // 供应商
+      selSupplier() {
+        this.dataNode['supplier'] = this.allSupplier[e.detail.value]
+        console.log(e)
+      },
+      // 所属分类
+      selType(e) {
+        this.dataNode['type'] = this.allType[e.detail.value]
+        console.log(e)
+      },
+      // 条码方案
+      selBarCodeProgram(e) {
+        this.dataNode['barCodeProgram'] = this.allBarCodeProgram[e.detail.value]
+        console.log(e)
+      },
+      // 修改商品状态
+      setStr(e) {
+        this.dataNode['str'] = e.currentTarget.dataset.type
+        console.log(this.dataNode)
+      },
+      // 获取时间
+      changeTime(e) {
+        this.dataNode['time'] = e.detail.value
+      },
+      // 编号
+      getNumbering(e) {
+        this.dataNode['numbering'] = e.detail.value
+        console.log(this.dataNode)
+      },
+      // 自动编号
+      getNumAutomatic(e) {
+        this.dataNode['numAutomatic'] = e.currentTarget.dataset.type
+        console.log(this.dataNode)
+      },
+      getNumAutomaticZJ(e) {
+        this.dataNode['numAutomaticZJ'] = e.currentTarget.dataset.type
+        console.log(this.dataNode)
+      },
+      // 名称
+      getName(e) {
+        this.dataNode['name'] = e.detail.value
+        console.log(this.dataNode)
+      },
+      // 条码
+      getCode(e) {
+        this.dataNode['barCode'] = e.detail.value
+        console.log(this.dataNode)
+      },
       // 进入颜色选择页
       goColorSel() {
         this.$navigate(`/pages/colorSel`)
+      },
+      // 选择单位
+      selUnit(e) {
+        this.dataNode['unit'] = this.allUnit[e.detail.value]
+        console.log(e)
+      },
+      // 选择尺码
+      selSize(e) {
+        this.dataNode['size'] = this.allSize[e.detail.value]
+        console.log(e)
+      },
+      // 选择材质
+      selMaterial(e) {
+        this.dataNode['material'] = this.allMaterial[e.detail.value]
+        console.log(e)
+      },
+      // 选择长度
+      selLength(e) {
+        this.dataNode['length'] = this.allLength[e.detail.value]
+        console.log(e)
       }
     }
 
@@ -304,6 +426,7 @@
   }
 </script>
 <style lang="less">
+  
   .titleBg{
     width: 690rpx;
     height: 80rpx;
@@ -402,6 +525,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      .active{
+        color: #0067fe;
+      }
       .con{
         display: flex;
         align-items: center;
