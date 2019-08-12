@@ -32,53 +32,44 @@
         </view>
       </view>
     </view>
-    <view class="recording">
+    <view class="recording" @tap="goExpensesRecord">
       <text>消费记录</text>
       <icon class="iconfont iconjiantouYou"></icon>
     </view>
     <view class="titleType">
-      <view>代金券购买</view>
-      <view class="active">我的代金券</view>
+      <view class="{{listType == '1'? 'active':''}}" data-type="1" @tap="selList">代金券购买</view>
+      <view class="{{listType == '0'? 'active':''}}" data-type="0" @tap="selList">我的代金券</view>
     </view>
     <view class="voucher">
-      <view class="item active">
-        <view class="con">
-          <view class="type">
-            <view>
-              ￥<text>33</text>
+      <repeat for="{{listData}}" item="item">
+        <view class="item {{item.str == '1'? 'active':''}}">
+          <view class="con">
+            <view class="type">
+              <view>
+                ￥<text>{{item.amount}}</text>
+              </view>
+              <view>{{item.amountDescription}}</view>
             </view>
-            <view>30元代金券</view>
-          </view>
-          <view class="info">
-            <text class="period">有效期</text>
-            <text class="time">2019.09.11-2019.09-11</text>
-            <text class="description">适用于所有商品</text>
-          </view>
-        </view>
-        <view class="img">
-          <image class="bg" src="/assets/images/voucher1.png"></image>
-          <text>立即使用</text>
-        </view>
-      </view>
-      <view class="item">
-        <view class="con">
-          <view class="type">
-            <view>
-              ￥<text>33</text>
+            <view class="info">
+              <text class="period">有效期</text>
+              <text class="time">{{item.startTime}}-{{item.endTima}}</text>
+              <text class="description">{{item.description}}</text>
             </view>
-            <view>30元代金券</view>
           </view>
-          <view class="info">
-            <text class="period">有效期</text>
-            <text class="time">2019.09.11-2019.09-11</text>
-            <text class="description">适用于所有商品</text>
+          <view class="img" wx:if="{{listType == '1'}}">
+            <image class="bg" src="/assets/images/voucher1.png"></image>
+            <text>立即购买</text>
+          </view>
+          <view class="img" wx:if="{{item.str == '1' && listType == '0'}}">
+            <image class="bg" src="/assets/images/voucher1.png"></image>
+            <text>立即使用</text>
+          </view>
+          <view class="img" wx:if="{{item.str == '0' && listType == '0'}}">
+            <image class="bg" src="/assets/images/voucher0.png"></image>
+            <text>已使用</text>
           </view>
         </view>
-        <view class="img">
-          <image class="bg" src="/assets/images/voucher0.png"></image>
-          <text>立即使用</text>
-        </view>
-      </view>
+      </repeat>
     </view>
   </view>
 </template>
@@ -94,12 +85,39 @@
     mixins = []
 
     data = {
-      
+      listType: '1',
+      listData: [
+        {
+          'id': '1',
+          'amount': '30',
+          'amountDescription': '30',
+          'startTime': '2019.08.30',
+          'endTima': '2019.09.30',
+          'description': '适用所有商品',
+          'str': '1',
+        },{
+          'id': '2',
+          'amount': '30',
+          'amountDescription': '30',
+          'startTime': '2019.08.30',
+          'endTima': '2019.09.30',
+          'description': '适用所有商品',
+          'str': '0',
+        }
+      ]
     }
 
     computed = {}
 
-    methods = {}
+    methods = {
+      selList(e) {
+        this.listType = e.currentTarget.dataset.type
+      },
+      // 消费记录
+      goExpensesRecord() {
+        this.$navigate(`/pages/consumption`)
+      }
+    }
 
     events = {}
 

@@ -73,7 +73,8 @@
         {'name': '库存查询', 'type': 'inventoryInquiry', 'img': 'inventoryInquiry_icon'},
         {'name': '客户对账', 'type': 'reconciliation', 'img': 'reconciliation_icon'},
         {'name': '收款单', 'type': 'receipt', 'img': 'receipt_icon'},
-        {'name': '库存调整单', 'type': 'adjustment', 'img': 'adjustment_icon'}
+        {'name': '库存调整单', 'type': 'adjustment', 'img': 'adjustment_icon'},
+        {'name': '我的', 'type': 'usre', 'img': 'adjustment_icon'}
       ]
     }
 
@@ -142,6 +143,9 @@
             break
           case 'adjustment': // 库存调整单
             url = 'stockAdjustment'
+            break
+          case 'usre': // 会员中心
+            url = 'VIP'
             break
           default:
 

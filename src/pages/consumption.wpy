@@ -8,58 +8,21 @@
 <template>
   <view>
     <view class="list">
-      <view class="item">
-        <view class="con">
-          <view class="name size">名字名字名字名字名字名字名字名字</view>
-          <view>×1</view>
-        </view>
-        <view class="con">
-          <view class="size">
-            名字名
-            <text>2019-08-12 12:00</text>
+      <repeat for="{{listData}}" item="item">
+        <view class="item">
+          <view class="con">
+            <view class="name size">{{item.name}}</view>
+            <view>×{{item.num}}</view>
           </view>
-          <view class="name">120</view>
-        </view>
-      </view>
-      <view class="item">
-        <view class="con">
-          <view class="name size">名字名字名字名字名字名字名字名字</view>
-          <view>×1</view>
-        </view>
-        <view class="con">
-          <view class="size">
-            名字名
-            <text>2019-08-12 12:00</text>
+          <view class="con">
+            <view class="size">
+              {{item.shop}}
+              <text>{{item.time}}</text>
+            </view>
+            <view class="name">{{item.amount}}</view>
           </view>
-          <view class="name">120</view>
         </view>
-      </view>
-      <view class="item">
-        <view class="con">
-          <view class="name size">名字名字名字名字名字名字名字名字</view>
-          <view>×1</view>
-        </view>
-        <view class="con">
-          <view class="size">
-            名字名
-            <text>2019-08-12 12:00</text>
-          </view>
-          <view class="name">120</view>
-        </view>
-      </view>
-      <view class="item">
-        <view class="con">
-          <view class="name size">名字名字名字名字名字名字名字名字</view>
-          <view>×1</view>
-        </view>
-        <view class="con">
-          <view class="size">
-            名字名
-            <text>2019-08-12 12:00</text>
-          </view>
-          <view class="name">120</view>
-        </view>
-      </view>
+      </repeat>
     </view>
   </view>
 </template>
@@ -75,7 +38,33 @@
     mixins = []
 
     data = {
-      
+      listData: [
+        {
+          'name': '小学生踏板鞋 女童鞋',
+          'shop': '小蜻蜓店',
+          'time': '2019.09.20 12:00',
+          'num': '2',
+          'amount': '300'
+        }, {
+          'name': '小学生踏板鞋 女童鞋',
+          'shop': '小蜻蜓店',
+          'time': '2019.09.20 12:00',
+          'num': '2',
+          'amount': '300'
+        }, {
+          'name': '小学生踏板鞋 女童鞋',
+          'shop': '小蜻蜓店',
+          'time': '2019.09.20 12:00',
+          'num': '2',
+          'amount': '300'
+        }, {
+          'name': '小学生踏板鞋 女童鞋',
+          'shop': '小蜻蜓店',
+          'time': '2019.09.20 12:00',
+          'num': '2',
+          'amount': '300'
+        }
+      ]
     }
 
     computed = {}
