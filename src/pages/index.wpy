@@ -291,7 +291,7 @@ page{
   border-top: 10rpx solid #f2f2f2;
   margin-top: 30rpx;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
   view{
@@ -299,7 +299,7 @@ page{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 145rpx;
+    width: 172.5rpx;
     height: 160rpx;
     font-size: 28rpx;
     color: #333333;
